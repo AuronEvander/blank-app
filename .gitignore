@@ -140,8 +140,7 @@ venv.bak/
 .ropeproject
 
 # mkdocs documentation
-/site/
-!/site/
+# /site  (mkdocs rule removed: this repo keeps the website in site/)
 
 # mypy
 .mypy_cache/
