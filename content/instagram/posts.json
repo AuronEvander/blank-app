@@ -16,10 +16,10 @@
   "day": "mon",
   "series": "understand",
   "status": "scheduled",
-  "image": "site/assets/problem_cup.jpg",
+  "image": "site/media/ig_understand_hz.png",
   "caption_tr": "Parkinson'da istirahat titremesi çoğunlukla saniyede 4–6 kez tekrar eder. Bu hız, sıradan bir bardaktaki sıvıyı dalgalandırmak için tam yeterlidir. ParkiCup'ın çıkış noktası bu: titremeyi durdurmak değil, bardağı titremeden ayırmak. #ParkiCup #Parkinson #Titreme",
   "caption_en": "Parkinson's rest tremor usually repeats 4–6 times a second. That is exactly the rate that sets the liquid in an ordinary cup sloshing. ParkiCup starts here: not stopping the tremor, but separating the cup from it. #ParkiCup #Parkinsons #Tremor",
-  "image_url": "https://raw.githubusercontent.com/AuronEvander/blank-app/main/site/assets/problem_cup.jpg"
+  "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_130725_069ed15e-0031-42fb-b64a-4a80898ba78c.png"
  },
  {
   "id": "w1-wed",
@@ -38,10 +38,10 @@
   "day": "fri",
   "series": "adapt",
   "status": "scheduled",
-  "image": "site/media/ai_breakfast.png",
+  "image": "site/media/ig_adapt_half_cup.png",
   "caption_tr": "Bugün işe yarayan küçük bir uyarlama: bardağı yarıya kadar doldurun ve dirseklerinizi masaya dayayın. Daha kısa kol, daha az salınım. #ParkiCup #Uyarla",
   "caption_en": "A small adaptation that helps today: fill the cup half way and rest your elbows on the table. Shorter lever, less swing. #ParkiCup #Adapt",
-  "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_123831_6665a28e-5f46-418c-8ad6-862feb6e2f38.png"
+  "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_130729_92806b5e-561e-441f-abd4-84aee95180ae.png"
  },
  {
   "id": "w2-mon",
@@ -60,10 +60,10 @@
   "day": "wed",
   "series": "understand",
   "status": "scheduled",
-  "image": "site/media/ai_process_5_assembled.png",
+  "image": "site/media/ig_understand_grip.png",
   "caption_tr": "Küçük kulp, parmak ucu kavraması ister. Parkinson'da azalan kavrama gücü tam da bunu zorlaştırır. ParkiCup'ın sapı tüm elle tutulur; yük bileğe yakın durur. #ParkiCup #Parkinson",
   "caption_en": "A small handle demands a pinch grip, and reduced grip strength in Parkinson's makes exactly that hard. ParkiCup's handle is held with the whole hand, the load close to the wrist. #ParkiCup #Parkinsons",
-  "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_125011_17c601d6-5fab-4b39-9573-d66855eeb3e7.png"
+  "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_130736_8b9bb715-2a27-484d-91a6-79038ecc77b1.png"
  },
  {
   "id": "w2-fri",
@@ -82,10 +82,10 @@
   "day": "mon",
   "series": "making",
   "status": "scheduled",
-  "image": "site/media/ai_process_3_slice.png",
+  "image": "site/media/ig_making_rings_flat.png",
   "caption_tr": "Baskı hazırlığı: halkalar yuvarlaklık için yatık, sap tutamak boyunca dayanım için dik basılıyor. Dört parça tek tablaya sığıyor. #ParkiCup #3DPrinting",
   "caption_en": "Print prep: rings print flat for roundness, the handle prints upright for strength along the grip. All four parts fit on one bed. #ParkiCup #3DPrinting",
-  "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_125004_81f897c5-6492-4bb9-ac38-16e7041bf606.png"
+  "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_130732_8bbd149e-5b9e-4def-91aa-8bf5b326b43c.png"
  },
  {
   "id": "w3-wed",

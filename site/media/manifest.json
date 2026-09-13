@@ -166,6 +166,34 @@
       "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/e644a433-ede2-4cbc-bd4a-e644c1cc5a53.mp4",
       "ratio": "9:16",
       "use": "Instagram Reel comparison, identical hand motion"
+    },
+    {
+      "file": "ig_understand_hz.png",
+      "job": "069ed15e-0031-42fb-b64a-4a80898ba78c",
+      "remote": "hf_20260913_130725_069ed15e-0031-42fb-b64a-4a80898ba78c.png",
+      "ratio": "1:1",
+      "use": "Journal/Instagram: why 4-6 Hz matters"
+    },
+    {
+      "file": "ig_adapt_half_cup.png",
+      "job": "92806b5e-561e-441f-abd4-84aee95180ae",
+      "remote": "hf_20260913_130729_92806b5e-561e-441f-abd4-84aee95180ae.png",
+      "ratio": "1:1",
+      "use": "Journal/Instagram: half cup, elbows down"
+    },
+    {
+      "file": "ig_making_rings_flat.png",
+      "job": "8bbd149e-5b9e-4def-91aa-8bf5b326b43c",
+      "remote": "hf_20260913_130732_8bbd149e-5b9e-4def-91aa-8bf5b326b43c.png",
+      "ratio": "1:1",
+      "use": "Journal/Instagram: printing the rings flat"
+    },
+    {
+      "file": "ig_understand_grip.png",
+      "job": "8b9bb715-2a27-484d-91a6-79038ecc77b1",
+      "remote": "hf_20260913_130736_8b9bb715-2a27-484d-91a6-79038ecc77b1.png",
+      "ratio": "1:1",
+      "use": "Journal/Instagram: grip strength and the small handle"
     }
   ]
 }

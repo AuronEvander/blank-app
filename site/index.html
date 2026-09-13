@@ -212,7 +212,9 @@ canvas#lab{width:100%;aspect-ratio:4/3;display:block;background:linear-gradient(
 .post.alt{background:var(--ink)} .post.light{background:var(--paper);color:var(--ink);border:1px solid var(--line)}
 .post .k{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;opacity:.8}
 .post h3{font-size:1.35rem}
-.post img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55}
+.post img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.7}
+.post.alt::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgb(10 10 46 / .35),rgb(10 10 46 / .75))}
+.post .over,.post .k{position:relative;z-index:1}
 .post .over{position:relative}
 
 /* ---------- cta / footer ---------- */
@@ -473,10 +475,10 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
     <h2 style="margin-top:.8rem" data-i18n="journal.h2">Short, useful posts on living well with tremor.</h2>
     <p class="lede" style="margin-top:1rem" data-i18n="journal.lede">Three posts a week: what Parkinson's does to the hands, small adaptations that help today, and the making of ParkiCup.</p>
     <div class="grid">
-      <article class="post"><span class="k" data-i18n="journal.k1">Series · Understand</span><div class="over"><h3 data-i18n="journal.t1">Why 4–6 Hz matters</h3></div></article>
-      <article class="post light"><span class="k" data-i18n="journal.k2">Series · Adapt</span><div class="over"><h3 data-i18n="journal.t2">Fill the cup half way, sit with elbows down</h3></div></article>
-      <article class="post alt"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_125004_81f897c5-6492-4bb9-ac38-16e7041bf606.png" data-fallback="assets/real_3.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="" loading="lazy"><span class="k over" data-i18n="journal.k3">Series · Making</span><div class="over"><h3 data-i18n="journal.t3">Printing the rings flat</h3></div></article>
-      <article class="post alt"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_124906_604fd5d3-3d19-4599-a7c9-44ddf57bd27f.png" data-fallback="assets/real_2.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="" loading="lazy"><span class="k over" data-i18n="journal.k4">Series · Understand</span><div class="over"><h3 data-i18n="journal.t4">Grip strength and the small handle</h3></div></article>
+      <article class="post alt"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_130725_069ed15e-0031-42fb-b64a-4a80898ba78c.png" data-fallback="assets/real_1.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="" loading="lazy"><span class="k over" data-i18n="journal.k1">Series · Understand</span><div class="over"><h3 data-i18n="journal.t1">Why 4–6 Hz matters</h3></div></article>
+      <article class="post alt"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_130729_92806b5e-561e-441f-abd4-84aee95180ae.png" data-fallback="assets/real_2.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="" loading="lazy"><span class="k over" data-i18n="journal.k2">Series · Adapt</span><div class="over"><h3 data-i18n="journal.t2">Fill the cup half way, sit with elbows down</h3></div></article>
+      <article class="post alt"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_130732_8bbd149e-5b9e-4def-91aa-8bf5b326b43c.png" data-fallback="assets/real_3.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="" loading="lazy"><span class="k over" data-i18n="journal.k3">Series · Making</span><div class="over"><h3 data-i18n="journal.t3">Printing the rings flat</h3></div></article>
+      <article class="post alt"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_130736_8b9bb715-2a27-484d-91a6-79038ecc77b1.png" data-fallback="assets/real_2.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="" loading="lazy"><span class="k over" data-i18n="journal.k4">Series · Understand</span><div class="over"><h3 data-i18n="journal.t4">Grip strength and the small handle</h3></div></article>
     </div>
   </div>
 </section>
