@@ -18,6 +18,6 @@ Bağlantı tamamlanınca Claude'da haftalık bir Routine kurulur:
 - Paylaşımdan önce onay istenirse: Routine yalnızca taslağı hazırlar, kullanıcı "gönder" der.
 
 ## 3. İçerik üretimi
-- Görseller: Higgsfield `gpt_image_2_5` (referans: `site/assets/step5_prototype.jpg`), 1:1 veya 4:5.
+- Görseller: Higgsfield `gpt_image_2_5` (referans: `site/assets/real_1.jpg` (gerçek prototip karesi)), 1:1 veya 4:5.
 - Reels: Higgsfield `kling3_0` (pro, 8 sn, 9:16) başlangıç karesi olarak üretilen görsel.
 - Açıklamalar: `posts.json` içindeki TR/EN metinler; hashtag seti `calendar.md`'de.

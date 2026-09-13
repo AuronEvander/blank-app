@@ -38,13 +38,6 @@
       "use": "How it works / Instagram"
     },
     {
-      "file": "ai_cafe.png",
-      "job": "4433922b-e8f0-48a6-93c2-2304e1d3ee98",
-      "remote": "hf_20260913_123857_4433922b-e8f0-48a6-93c2-2304e1d3ee98.png",
-      "ratio": "16:9",
-      "use": "Gallery / Instagram w3-wed"
-    },
-    {
       "file": "ai_film_kitchen.mp4",
       "job": "ffa99411-f1ae-4f9c-b6df-853be52d70a0",
       "remote": "hf_20260913_123933_ffa99411-f1ae-4f9c-b6df-853be52d70a0.mp4",
@@ -78,6 +71,48 @@
       "remote": "hf_20260913_124039_6cd32570-8430-4a7a-b809-f31ddc4c64e7.mp4",
       "ratio": "9:16",
       "use": "Film: real clip's motion transferred to the kitchen still (Genjutsu motion control)"
+    },
+    {
+      "file": "ai_cafe.png",
+      "job": "604fd5d3-3d19-4599-a7c9-44ddf57bd27f",
+      "remote": "hf_20260913_124906_604fd5d3-3d19-4599-a7c9-44ddf57bd27f.png",
+      "ratio": "16:9",
+      "use": "Gallery / Instagram w3-wed"
+    },
+    {
+      "file": "ai_process_1_cad.png",
+      "job": "300bdd39-5bc3-4c25-ae9f-e0c567e0b48d",
+      "remote": "hf_20260913_124956_300bdd39-5bc3-4c25-ae9f-e0c567e0b48d.png",
+      "ratio": "4:5",
+      "use": "Process step 1"
+    },
+    {
+      "file": "ai_process_2_render.png",
+      "job": "aad61f2d-9583-47d4-8c94-1bb338b35e77",
+      "remote": "hf_20260913_125000_aad61f2d-9583-47d4-8c94-1bb338b35e77.png",
+      "ratio": "4:5",
+      "use": "Process step 2"
+    },
+    {
+      "file": "ai_process_3_slice.png",
+      "job": "81f897c5-6492-4bb9-ac38-16e7041bf606",
+      "remote": "hf_20260913_125004_81f897c5-6492-4bb9-ac38-16e7041bf606.png",
+      "ratio": "4:5",
+      "use": "Process step 3 / Instagram w3-mon"
+    },
+    {
+      "file": "ai_process_4_parts.png",
+      "job": "3049892f-bfb6-482f-97bc-daf8ed3e472d",
+      "remote": "hf_20260913_125008_3049892f-bfb6-482f-97bc-daf8ed3e472d.png",
+      "ratio": "4:5",
+      "use": "Process step 4 / Instagram w2-mon"
+    },
+    {
+      "file": "ai_process_5_assembled.png",
+      "job": "17c601d6-5fab-4b39-9573-d66855eeb3e7",
+      "remote": "hf_20260913_125011_17c601d6-5fab-4b39-9573-d66855eeb3e7.png",
+      "ratio": "4:5",
+      "use": "Process step 5 / Instagram w2-wed, w4-fri"
     }
   ]
 }

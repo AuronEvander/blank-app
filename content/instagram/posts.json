@@ -38,10 +38,10 @@
   "day": "mon",
   "series": "making",
   "status": "scheduled",
-  "image": "site/assets/step4_parts.jpg",
+  "image": "site/media/ai_process_4_parts.png",
   "caption_tr": "Dört basılı parça, tek fikir. Y biçimli sap, konik yuva ve birbirine dik iki halka. Halkalar bir gimbal oluşturur: el eğilir, yuva pimlerinden sarkar, sıvı düz kalır. #ParkiCup #3DPrinting",
   "caption_en": "Four printed parts, one idea. A Y-shaped handle, a conical cradle and two rings pinned at ninety degrees. The rings form a gimbal: the hand tilts, the cradle hangs from its pivots, the liquid stays level. #ParkiCup #3DPrinting",
-  "image_url": "https://raw.githubusercontent.com/AuronEvander/blank-app/main/site/assets/step4_parts.jpg"
+  "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_125008_3049892f-bfb6-482f-97bc-daf8ed3e472d.png"
  },
  {
   "id": "w2-wed",
@@ -49,10 +49,10 @@
   "day": "wed",
   "series": "understand",
   "status": "scheduled",
-  "image": "site/assets/step5_prototype.jpg",
+  "image": "site/media/ai_process_5_assembled.png",
   "caption_tr": "Küçük kulp, parmak ucu kavraması ister. Parkinson'da azalan kavrama gücü tam da bunu zorlaştırır. ParkiCup'ın sapı tüm elle tutulur; yük bileğe yakın durur. #ParkiCup #Parkinson",
   "caption_en": "A small handle demands a pinch grip, and reduced grip strength in Parkinson's makes exactly that hard. ParkiCup's handle is held with the whole hand, the load close to the wrist. #ParkiCup #Parkinsons",
-  "image_url": "https://raw.githubusercontent.com/AuronEvander/blank-app/main/site/assets/step5_prototype.jpg"
+  "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_125011_17c601d6-5fab-4b39-9573-d66855eeb3e7.png"
  },
  {
   "id": "w2-fri",
@@ -71,10 +71,10 @@
   "day": "mon",
   "series": "making",
   "status": "scheduled",
-  "image": "site/assets/step3_print.jpg",
+  "image": "site/media/ai_process_3_slice.png",
   "caption_tr": "Baskı hazırlığı: halkalar yuvarlaklık için yatık, sap tutamak boyunca dayanım için dik basılıyor. Dört parça tek tablaya sığıyor. #ParkiCup #3DPrinting",
   "caption_en": "Print prep: rings print flat for roundness, the handle prints upright for strength along the grip. All four parts fit on one bed. #ParkiCup #3DPrinting",
-  "image_url": "https://raw.githubusercontent.com/AuronEvander/blank-app/main/site/assets/step3_print.jpg"
+  "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_125004_81f897c5-6492-4bb9-ac38-16e7041bf606.png"
  },
  {
   "id": "w3-wed",
@@ -85,7 +85,7 @@
   "image": "site/media/ai_cafe.png",
   "caption_tr": "Dökülme korkusu insanları başkalarının yanında içmekten alıkoyar. Bu yüzden konu yalnızca bardak değil; masaya geri dönmek. #ParkiCup #Parkinson",
   "caption_en": "Fear of spilling keeps people from drinking in company. So this is not only about a cup; it is about coming back to the table. #ParkiCup #Parkinsons",
-  "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_123857_4433922b-e8f0-48a6-93c2-2304e1d3ee98.png"
+  "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_124906_604fd5d3-3d19-4599-a7c9-44ddf57bd27f.png"
  },
  {
   "id": "w3-fri",
@@ -126,9 +126,9 @@
   "day": "fri",
   "series": "making",
   "status": "scheduled",
-  "image": "site/assets/step1_cad.jpg",
+  "image": "site/media/ai_process_1_cad.png",
   "caption_tr": "Sırada ne var? Titreme yüzünden zorlaşan bir günlük iş varsa yorumlara yazın. Gerçek sorunlar bir sonraki tasarımın briefini belirler. #ParkiCup",
   "caption_en": "What's next? If a daily task has become hard because of tremor, tell us in the comments. Real problems set the next design brief. #ParkiCup",
-  "image_url": "https://raw.githubusercontent.com/AuronEvander/blank-app/main/site/assets/step1_cad.jpg"
+  "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_124956_300bdd39-5bc3-4c25-ae9f-e0c567e0b48d.png"
  }
 ]

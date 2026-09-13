@@ -14,15 +14,15 @@ görseller `site/assets/` ve `site/media/` klasörlerinden gelir.
 | 1 | Pzt | Anla | 4–6 Hz: istirahat titremesi neden bardağı sallar | `site/assets/problem_cup.jpg` |
 | 1 | Çar | Yapım | İlk soru: tasarım günlük hayatı nasıl kolaylaştırır? | `site/assets/designer.jpg` |
 | 1 | Cum | Uyarla | Bardağı yarıya kadar doldurun, dirsekler masada | AI görsel: kahvaltı masası |
-| 2 | Pzt | Yapım | Dört parça, tek fikir: gimbal | `site/assets/step4_parts.jpg` |
-| 2 | Çar | Anla | Kavrama gücü ve küçük kulp sorunu | `site/assets/step5_prototype.jpg` |
+| 2 | Pzt | Yapım | Dört parça, tek fikir: gimbal | `site/media/ai_process_4_parts.png` |
+| 2 | Çar | Anla | Kavrama gücü ve küçük kulp sorunu | `site/media/ai_process_5_assembled.png` |
 | 2 | Cum | Uyarla | Pipet neden işe yarar | AI görsel: pipetle içme (9:16) |
-| 3 | Pzt | Yapım | Halkaları yatık, sapı dik basmak | `site/assets/step3_print.jpg` |
+| 3 | Pzt | Yapım | Halkaları yatık, sapı dik basmak | `site/media/ai_process_3_slice.png` |
 | 3 | Çar | Anla | Titreme ve sosyal geri çekilme | AI görsel: kafe sahnesi |
 | 3 | Cum | Uyarla | Ağır tabanlı bardak vs. hafif bardak | AI görsel: ürün masada |
 | 4 | Pzt | Yapım | Elde test: eğ, salla, izle | AI video: mekanizma (Reels) |
 | 4 | Çar | Anla | Bakım verenler için: yardım etmeden destek olmak | AI görsel: anne–kız |
-| 4 | Cum | Yapım | Sırada ne var? Sonraki ürün için fikir çağrısı | `site/assets/step1_cad.jpg` |
+| 4 | Cum | Yapım | Sırada ne var? Sonraki ürün için fikir çağrısı | `site/media/ai_process_1_cad.png` |
 
 ## Sabit hashtag seti
 `#ParkiCup #Parkinson #Parkinsons #AssistiveDesign #YardımcıTeknoloji #Tremor #Titreme #InclusiveDesign #3DPrinting #ErişilebilirTasarım`

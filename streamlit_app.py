@@ -156,7 +156,7 @@ def home() -> None:
         )
         st.page_link(problem_page, label="Read more →")
     with c2:
-        st.image(ASSETS / "design_process.jpg", use_container_width=True)
+        st.image(ASSETS / "prototype02.jpg", use_container_width=True)
         serif("The Design")
         body(
             "A larger, more comfortable grip, added stability and a foldable-straw "
@@ -239,17 +239,26 @@ def mission() -> None:
         )
 
 
+MEDIA_BASE = "https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/"
+PROCESS_IMAGES = [MEDIA_BASE + f for f in [
+    "hf_20260913_124956_300bdd39-5bc3-4c25-ae9f-e0c567e0b48d.png",
+    "hf_20260913_125000_aad61f2d-9583-47d4-8c94-1bb338b35e77.png",
+    "hf_20260913_125004_81f897c5-6492-4bb9-ac38-16e7041bf606.png",
+    "hf_20260913_125008_3049892f-bfb6-482f-97bc-daf8ed3e472d.png",
+    "hf_20260913_125011_17c601d6-5fab-4b39-9573-d66855eeb3e7.png",
+]]
+
 DESIGN_STEPS = [
-    ("CAD Modeling", "The holder, handle and straw mount are modelled in CAD with a larger, "
-                     "easier-to-grip handle and a stable base."),
-    ("Concept Development", "Renders are used to refine the shape, the ring that clips around "
-                            "the cup, and how the foldable straw attaches."),
-    ("3D Print Preparation", "Parts are laid out on the print bed and sliced for printing, "
-                             "checking wall thickness and supports."),
-    ("Prototype Assembly", "Printed rings, handle and straw arm are cleaned up and fitted "
-                           "together around a standard cup."),
-    ("Final Prototype", "The assembled ParkiCup is tested in the hand for grip, stability "
-                        "and ease of drinking."),
+    ("CAD Modeling", "Handle, yoke, two rings and the windowed cradle are modelled as separate "
+                     "bodies so each can be reprinted and tuned on its own."),
+    ("Concept Development", "Renders check the balance of the cradle and how far the rings swing "
+                            "inside the yoke without touching it."),
+    ("3D Print Preparation", "All five parts fit on one bed; rings print flat for roundness, the "
+                             "handle upright for strength along the grip."),
+    ("Prototype Assembly", "Rings snap onto their pins and the yoke plugs into the foam-wrapped "
+                           "handle. No screws, no glue."),
+    ("Final Prototype", "The assembled navy ParkiCup is tilted and shaken in the hand: the "
+                        "cradle finds level on its own."),
 ]
 
 
@@ -258,11 +267,10 @@ def design() -> None:
     serif("Design Process")
     body("From concept to functional assistive device prototype.")
     st.markdown("")
-    st.image(ASSETS / "design_process.jpg", use_container_width=True)
-    st.markdown("")
     cols = st.columns(len(DESIGN_STEPS), gap="small")
     for i, (col, (title, desc)) in enumerate(zip(cols, DESIGN_STEPS), start=1):
         with col:
+            st.image(PROCESS_IMAGES[i - 1], use_container_width=True)
             st.markdown(
                 f'<div class="pc-step"><div class="num">{i}</div>'
                 f'<div class="title">{title}</div><div class="desc">{desc}</div></div>',
