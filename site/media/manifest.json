@@ -1,0 +1,76 @@
+{
+  "base": "https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/",
+  "note": "AI-generated with Higgsfield (GPT Image 2.5 / Nano Banana 2 / Seedance 2.0) from the original prototype photos as references. Run scripts/fetch_media.sh to download them into site/media/.",
+  "items": [
+    {
+      "file": "ai_hero_kitchen.png",
+      "job": "6e486a00-16e9-4705-8c64-83864ef165f6",
+      "remote": "hf_20260913_115958_6e486a00-16e9-4705-8c64-83864ef165f6.png",
+      "ratio": "16:9",
+      "use": "Hero / film poster"
+    },
+    {
+      "file": "ai_hand_macro.png",
+      "job": "abd327bb-4fd6-4040-9790-c569721e3642",
+      "remote": "hf_20260913_115950_abd327bb-4fd6-4040-9790-c569721e3642.png",
+      "ratio": "4:5",
+      "use": "Mechanism close-up"
+    },
+    {
+      "file": "ai_product.png",
+      "job": "4e0ea426-d5de-449e-a25a-9d6325f8632e",
+      "remote": "hf_20260913_115954_4e0ea426-d5de-449e-a25a-9d6325f8632e.png",
+      "ratio": "16:9",
+      "use": "Product card / Instagram w3-fri"
+    },
+    {
+      "file": "ai_straw_9x16.png",
+      "job": "819c5e64-25e9-4f2c-91e0-a0659f1cb7e7",
+      "remote": "hf_20260913_115618_819c5e64-25e9-4f2c-91e0-a0659f1cb7e7.png",
+      "ratio": "9:16",
+      "use": "Instagram w2-fri, w4-wed"
+    },
+    {
+      "file": "ai_mechanism_1x1.png",
+      "job": "8a8e584f-a0c6-40d7-8b1d-c225b74a9336",
+      "remote": "hf_20260913_115622_8a8e584f-a0c6-40d7-8b1d-c225b74a9336.png",
+      "ratio": "1:1",
+      "use": "How it works / Instagram"
+    },
+    {
+      "file": "ai_cafe.png",
+      "job": "1d9157bd-a14c-45aa-8e7e-3a941b2450f9",
+      "remote": "hf_20260913_115625_1d9157bd-a14c-45aa-8e7e-3a941b2450f9.png",
+      "ratio": "16:9",
+      "use": "Gallery / Instagram w3-wed"
+    },
+    {
+      "file": "ai_film_kitchen.mp4",
+      "job": "5ae812c2-2492-4402-9859-c932a6aaf4a2",
+      "remote": "hf_20260913_115711_5ae812c2-2492-4402-9859-c932a6aaf4a2.mp4",
+      "ratio": "16:9",
+      "use": "Film: drinking with tremor, cup stays level"
+    },
+    {
+      "file": "ai_film_mechanism.mp4",
+      "job": "393b14c5-814c-4e42-8cf2-c0e025783f53",
+      "remote": "hf_20260913_115715_393b14c5-814c-4e42-8cf2-c0e025783f53.mp4",
+      "ratio": "3:4",
+      "use": "Film: gimbal close-up"
+    },
+    {
+      "file": "ai_film_kitchen_poster.png",
+      "job": "b5165d17-471e-42fd-b34e-7de237e60ed0",
+      "remote": "hf_20260913_115501_b5165d17-471e-42fd-b34e-7de237e60ed0.png",
+      "ratio": "16:9",
+      "use": "Poster frame of the kitchen film (mug with handle)"
+    },
+    {
+      "file": "ai_film_mechanism_poster.png",
+      "job": "c4cf2103-2aab-4253-8cf0-ae24a6421fec",
+      "remote": "hf_20260913_115504_c4cf2103-2aab-4253-8cf0-ae24a6421fec.png",
+      "ratio": "4:5",
+      "use": "Poster frame of the mechanism film (mug with handle)"
+    }
+  ]
+}

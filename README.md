@@ -14,6 +14,23 @@ Pages:
 
 Images live in `assets/` and the brand theme (blue on white) is set in `.streamlit/config.toml`.
 
+## Premium website (`site/`)
+
+`site/index.html` is a standalone, dependency-free website for ParkiCup:
+an EN/TR bilingual landing page with a live canvas simulation of the gimbal
+mechanism (hand tremor at 4–6 Hz vs. a self-levelling cradle), the original
+prototype photographs, specs, the designer's story, a products roadmap and the
+Instagram journal. It deploys to GitHub Pages with the workflow in `deploy/` (see `deploy/README.md`
+for the one-time setup).
+
+AI-generated photos and films go in `site/media/`.
+
+## Instagram content (`content/instagram/`)
+
+- `calendar.md`: four-week plan, three series (Understand / Adapt / Making), hashtag set and rules.
+- `posts.json`: the twelve posts with TR and EN captions and their image paths.
+- `automation.md`: how the scheduled posting works once an Instagram Business account is connected.
+
 ### How to run it on your own machine
 
 1. Install the requirements

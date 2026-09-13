@@ -1,0 +1,691 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ParkiCup</title>
+<meta name="description" content="ParkiCup is a gimbal-stabilised assistive cup holder that keeps a drink level while a hand with Parkinson's tremor moves.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Albert+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* ---------- tokens ---------- */
+:root{
+  --ink:#0A0A2E; --ink-2:#3A3C63; --ink-3:#6E7194;
+  --ground:#F5F6FA; --paper:#FFFFFF; --glaze:#DCE0FF; --line:#D6D9EA;
+  --cobalt:#1414E6; --cobalt-ink:#0E0EB8; --cobalt-soft:#EEF0FF;
+  --steady:#2F9E6E; --steady-soft:#E3F5EC; --tremor:#D9821B; --tremor-soft:#FBEEDC;
+  --shadow:0 24px 60px -30px rgb(10 10 46 / .35);
+  --display:'Instrument Serif',Georgia,'Times New Roman',serif;
+  --body:'Albert Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  --gutter:clamp(16px,5vw,64px); --measure:62ch;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ink:#EEF0FF; --ink-2:#B9BCE0; --ink-3:#8386B0;
+    --ground:#0B0C1F; --paper:#14163A; --glaze:#1E2160; --line:#262A5E;
+    --cobalt:#6B78FF; --cobalt-ink:#8A95FF; --cobalt-soft:#181B48;
+    --steady:#4FCB93; --steady-soft:#123527; --tremor:#F0A24A; --tremor-soft:#3A2510;
+    --shadow:0 24px 60px -30px rgb(0 0 0 / .8);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#EEF0FF; --ink-2:#B9BCE0; --ink-3:#8386B0;
+  --ground:#0B0C1F; --paper:#14163A; --glaze:#1E2160; --line:#262A5E;
+  --cobalt:#6B78FF; --cobalt-ink:#8A95FF; --cobalt-soft:#181B48;
+  --steady:#4FCB93; --steady-soft:#123527; --tremor:#F0A24A; --tremor-soft:#3A2510;
+  --shadow:0 24px 60px -30px rgb(0 0 0 / .8);
+  color-scheme:dark;
+}
+
+/* ---------- base ---------- */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.02;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h1{font-size:clamp(2.8rem,7.2vw,6.4rem)}
+h2{font-size:clamp(2.1rem,4.6vw,3.9rem)}
+h3{font-size:clamp(1.45rem,2.4vw,1.9rem)}
+p{margin:0;max-width:var(--measure)}
+em{font-style:italic;color:var(--cobalt)}
+.eyebrow{font-family:var(--mono);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cobalt);display:flex;align-items:center;gap:.7rem}
+.eyebrow::before{content:"";width:1.6rem;height:1px;background:currentColor}
+.wrap{padding-inline:var(--gutter);max-width:1320px;margin-inline:auto}
+section{padding-block:clamp(4rem,9vw,8rem)}
+.lede{font-size:clamp(1.1rem,1.5vw,1.3rem);color:var(--ink-2)}
+.btn{display:inline-flex;align-items:center;gap:.6rem;padding:.9rem 1.4rem;border-radius:999px;border:1px solid var(--cobalt);background:var(--cobalt);color:#fff;font-weight:500;text-decoration:none;transition:transform .2s,background .2s}
+.btn:hover{background:var(--cobalt-ink);transform:translateY(-1px)}
+.btn.ghost{background:transparent;color:var(--cobalt)}
+.btn.ghost:hover{background:var(--cobalt-soft)}
+:focus-visible{outline:2px solid var(--cobalt);outline-offset:3px}
+.mono{font-family:var(--mono)}
+.tab{font-variant-numeric:tabular-nums}
+
+/* ---------- nav ---------- */
+.nav{position:sticky;top:0;z-index:20;backdrop-filter:blur(14px);background:color-mix(in srgb,var(--ground) 82%,transparent);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:64px}
+.brand{font-family:var(--display);font-size:1.5rem;text-decoration:none;display:flex;align-items:center;gap:.55rem}
+.brand svg{width:26px;height:26px}
+.links{display:flex;gap:1.6rem;font-size:.92rem;list-style:none;margin:0;padding:0}
+.links a{text-decoration:none;color:var(--ink-2)}
+.links a:hover{color:var(--cobalt)}
+.lang{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;font-family:var(--mono);font-size:.74rem}
+.lang button{appearance:none;border:0;background:transparent;color:var(--ink-2);padding:.45rem .8rem;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--cobalt);color:#fff}
+@media (max-width:860px){.links{display:none}}
+
+/* ---------- hero ---------- */
+.hero{padding-block:clamp(3rem,7vw,6rem) clamp(3rem,6vw,5rem)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(2rem,5vw,5rem);align-items:center}
+.hero-copy{display:grid;gap:1.6rem}
+.hero-copy .actions{display:flex;flex-wrap:wrap;gap:.8rem}
+.hero-stats{display:flex;gap:2rem;flex-wrap:wrap;padding-top:1rem;border-top:1px solid var(--line)}
+.stat{display:grid;gap:.15rem}
+.stat b{font-family:var(--display);font-size:2rem;font-weight:400;line-height:1}
+.stat span{font-size:.8rem;color:var(--ink-3);letter-spacing:.06em;text-transform:uppercase}
+@media (max-width:900px){.hero .wrap{grid-template-columns:1fr}}
+
+/* ---------- lab (simulation) ---------- */
+.lab{background:var(--paper);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);overflow:hidden;display:grid}
+.lab-head{display:flex;justify-content:space-between;align-items:center;padding:.9rem 1.1rem;border-bottom:1px solid var(--line);gap:1rem;flex-wrap:wrap}
+.lab-head .eyebrow::before{display:none}
+.seg{display:inline-flex;background:var(--ground);border:1px solid var(--line);border-radius:999px;padding:3px}
+.seg button{appearance:none;border:0;background:transparent;color:var(--ink-2);padding:.4rem .9rem;border-radius:999px;font:inherit;font-size:.85rem;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--ground)}
+canvas#lab{width:100%;aspect-ratio:4/3;display:block;background:linear-gradient(180deg,var(--paper),var(--ground))}
+.lab-foot{display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:center;padding:.9rem 1.1rem;border-top:1px solid var(--line)}
+.lab-foot label{display:grid;gap:.3rem;font-size:.8rem;color:var(--ink-3)}
+.lab-foot input[type=range]{width:100%;accent-color:var(--cobalt)}
+.readouts{display:flex;gap:1.2rem}
+.readouts div{display:grid;gap:.1rem;font-family:var(--mono);font-size:.75rem;color:var(--ink-3)}
+.readouts b{font-size:1.15rem;font-weight:500;color:var(--ink)}
+.readouts b.good{color:var(--steady)} .readouts b.bad{color:var(--tremor)}
+@media (max-width:520px){.lab-foot{grid-template-columns:1fr}}
+
+/* ---------- problem ---------- */
+.problem{background:var(--ink);color:var(--ground)}
+.problem .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(2rem,5vw,5rem);align-items:center}
+.problem .eyebrow{color:#9AA3FF}
+.problem .lede{color:#C5C8E8}
+.problem figure{margin:0;border-radius:18px;overflow:hidden;aspect-ratio:4/5;max-width:100%}
+.problem figure img{width:100%;height:100%;object-fit:cover}
+.wave{margin-top:2rem;padding:1.2rem;border:1px solid #2A2D5C;border-radius:14px;display:grid;gap:.6rem}
+.wave svg{width:100%;height:70px;display:block}
+.wave .mono{font-size:.75rem;color:#9AA3FF;display:flex;justify-content:space-between}
+@media (max-width:900px){.problem .wrap{grid-template-columns:1fr}}
+
+/* ---------- film ---------- */
+.film{background:var(--paper);border-block:1px solid var(--line)}
+.film .head{display:grid;gap:.8rem;margin-bottom:2rem}
+.films{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:1.2rem}
+.clip{position:relative;border-radius:18px;overflow:hidden;background:var(--ink);aspect-ratio:16/9;max-width:100%}
+.clip.tall{aspect-ratio:3/4}
+.clip video,.clip img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.clip figcaption{position:absolute;left:0;right:0;bottom:0;padding:1rem 1.1rem;color:#fff;font-size:.85rem;background:linear-gradient(transparent,rgb(10 10 46 / .75));display:flex;justify-content:space-between;gap:1rem}
+.clip .mono{opacity:.8}
+@media (max-width:820px){.films{grid-template-columns:1fr}.clip.tall{aspect-ratio:4/3}}
+
+/* ---------- gallery ---------- */
+.gallery .grid{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:140px;gap:.8rem;margin-top:2rem}
+.gallery figure{margin:0;border-radius:14px;overflow:hidden;background:var(--glaze)}
+.gallery img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.gallery figure:hover img{transform:scale(1.04)}
+.g1{grid-column:span 4;grid-row:span 2}.g2{grid-column:span 2;grid-row:span 3}.g3{grid-column:span 2;grid-row:span 1}.g4{grid-column:span 2;grid-row:span 2}.g5{grid-column:span 2;grid-row:span 1}
+@media (max-width:820px){.gallery .grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px}.g1,.g2,.g3,.g4,.g5{grid-column:span 1;grid-row:span 1}.g1{grid-column:span 2}}
+
+/* ---------- mechanism ---------- */
+.mech .wrap{display:grid;gap:3rem}
+.mech-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(2rem,5vw,4rem);align-items:start}
+.exploded{position:relative;border-radius:20px;overflow:hidden;background:var(--paper);border:1px solid var(--line)}
+.exploded img{width:100%;aspect-ratio:1/1;object-fit:cover}
+.pin{position:absolute;width:30px;height:30px;border-radius:50%;background:var(--cobalt);color:#fff;font-family:var(--mono);font-size:.75rem;display:grid;place-items:center;border:3px solid var(--paper);box-shadow:0 4px 14px rgb(20 20 230 / .35);cursor:default}
+.pin::after{content:"";position:absolute;inset:-8px;border-radius:50%;border:1px solid var(--cobalt);opacity:.5;animation:ping 2.2s ease-out infinite}
+@keyframes ping{0%{transform:scale(.6);opacity:.7}100%{transform:scale(1.6);opacity:0}}
+.parts{display:grid;gap:0;counter-reset:part}
+.part{display:grid;grid-template-columns:2.2rem 1fr;gap:1rem;padding:1.3rem 0;border-top:1px solid var(--line)}
+.part:last-child{border-bottom:1px solid var(--line)}
+.part .n{font-family:var(--mono);color:var(--cobalt);font-size:.85rem;padding-top:.35rem}
+.part h3{font-size:1.35rem;margin-bottom:.3rem}
+.part p{color:var(--ink-2);font-size:.98rem}
+@media (max-width:900px){.mech-grid{grid-template-columns:1fr}}
+
+/* ---------- process ---------- */
+.process{background:var(--paper);border-block:1px solid var(--line)}
+.process .head{display:flex;justify-content:space-between;align-items:end;gap:2rem;flex-wrap:wrap;margin-bottom:2.4rem}
+.track{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(260px,1fr);gap:1.2rem;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:1rem;scrollbar-width:thin}
+.step{scroll-snap-align:start;display:grid;gap:.9rem;container-type:inline-size}
+.step figure{margin:0;border-radius:16px;overflow:hidden;background:var(--ground);border:1px solid var(--line)}
+.step img{aspect-ratio:4/4.5;object-fit:cover;width:100%;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.step:hover img{transform:scale(1.03)}
+.step .k{font-family:var(--mono);font-size:.75rem;color:var(--ink-3);display:flex;justify-content:space-between}
+.step h3{font-size:1.3rem}
+.step p{font-size:.95rem;color:var(--ink-2)}
+@supports (animation-timeline:view()){
+  .step{animation:rise both linear;animation-timeline:view();animation-range:entry 0% entry 40%}
+  @keyframes rise{from{opacity:.35;transform:translateY(18px)}to{opacity:1;transform:none}}
+}
+
+/* ---------- specs ---------- */
+.specs .wrap{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(2rem,5vw,5rem)}
+.spec-table{border-top:1px solid var(--line)}
+.spec-table div{display:grid;grid-template-columns:1fr 1.4fr;gap:1rem;padding:.9rem 0;border-bottom:1px solid var(--line);font-size:.97rem}
+.spec-table dt{color:var(--ink-3);margin:0}
+.spec-table dd{margin:0}
+@media (max-width:900px){.specs .wrap{grid-template-columns:1fr}}
+
+/* ---------- designer ---------- */
+.designer{background:var(--glaze)}
+.designer .wrap{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(2rem,5vw,5rem);align-items:center}
+.designer figure{margin:0;border-radius:20px;overflow:hidden;aspect-ratio:4/5;box-shadow:var(--shadow)}
+.designer img{width:100%;height:100%;object-fit:cover}
+.designer .copy{display:grid;gap:1.4rem}
+.quote{font-family:var(--display);font-size:clamp(1.5rem,2.6vw,2.2rem);line-height:1.2;max-width:24ch}
+@media (max-width:900px){.designer .wrap{grid-template-columns:1fr}}
+
+/* ---------- products ---------- */
+.products .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem;margin-top:2rem}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:1.4rem;display:grid;gap:.8rem;align-content:start}
+.card.lead{grid-row:span 1;background:var(--ink);color:var(--ground);border-color:transparent}
+.card.lead .eyebrow{color:#9AA3FF}
+.card .img{border-radius:12px;overflow:hidden;aspect-ratio:16/11}
+.card .img img{width:100%;height:100%;object-fit:cover}
+.card.soon{border-style:dashed;color:var(--ink-3)}
+.tag{display:inline-block;font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;padding:.25rem .6rem;border-radius:999px;border:1px solid currentColor;width:max-content}
+
+/* ---------- journal ---------- */
+.journal .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:2rem}
+.post{aspect-ratio:1;border-radius:14px;padding:1.1rem;display:grid;align-content:space-between;color:#fff;background:var(--cobalt);position:relative;overflow:hidden}
+.post.alt{background:var(--ink)} .post.light{background:var(--paper);color:var(--ink);border:1px solid var(--line)}
+.post .k{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;opacity:.8}
+.post h3{font-size:1.35rem}
+.post img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55}
+.post .over{position:relative}
+
+/* ---------- cta / footer ---------- */
+.cta{padding-block:clamp(4rem,8vw,7rem)}
+.cta .box{background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:clamp(2rem,5vw,4rem);display:grid;gap:1.4rem;justify-items:start}
+footer{border-top:1px solid var(--line);padding-block:2rem;font-size:.85rem;color:var(--ink-3)}
+footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+::view-transition-old(root),::view-transition-new(root){animation-duration:.25s}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="ParkiCup">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="6" stroke="currentColor" stroke-width="1.6"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4" stroke="currentColor" stroke-width="1.6"/></svg>
+      ParkiCup
+    </a>
+    <ul class="links">
+      <li><a href="#problem" data-i18n="nav.problem">The problem</a></li>
+      <li><a href="#film" data-i18n="nav.film">Film</a></li>
+      <li><a href="#mechanism" data-i18n="nav.mech">How it works</a></li>
+      <li><a href="#process" data-i18n="nav.process">Process</a></li>
+      <li><a href="#designer" data-i18n="nav.designer">Designer</a></li>
+      <li><a href="#journal" data-i18n="nav.journal">Journal</a></li>
+    </ul>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" id="lang-en" aria-pressed="true">EN</button>
+      <button type="button" id="lang-tr" aria-pressed="false">TR</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-copy">
+      <span class="eyebrow" data-i18n="hero.eyebrow">Assistive cup holder · Prototype 01</span>
+      <h1 data-i18n="hero.h1">The hand shakes.<br>The cup <em>stays level.</em></h1>
+      <p class="lede" data-i18n="hero.lede">ParkiCup is a gimbal-stabilised cup holder for people living with Parkinson's. Two pivoting rings decouple the drink from the tremor, a wide handle suits a weaker grip, and a foldable straw makes sipping possible without lifting at all.</p>
+      <div class="actions">
+        <a class="btn" href="#mechanism" data-i18n="hero.cta1">See how it works</a>
+        <a class="btn ghost" href="#lab-anchor" data-i18n="hero.cta2">Try the tremor lab</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><b class="tab">4–6 Hz</b><span data-i18n="hero.s1">Parkinson's rest tremor</span></div>
+        <div class="stat"><b class="tab">2</b><span data-i18n="hero.s2">Free-pivoting axes</span></div>
+        <div class="stat"><b class="tab">4</b><span data-i18n="hero.s3">3D-printed parts</span></div>
+      </div>
+    </div>
+
+    <div class="lab" id="lab-anchor" aria-label="Tremor lab simulation">
+      <div class="lab-head">
+        <span class="eyebrow" data-i18n="lab.title">Tremor lab · live simulation</span>
+        <div class="seg" role="group" aria-label="Mode">
+          <button type="button" id="mode-off" aria-pressed="false" data-i18n="lab.off">Ordinary cup</button>
+          <button type="button" id="mode-on" aria-pressed="true" data-i18n="lab.on">With ParkiCup</button>
+        </div>
+      </div>
+      <canvas id="lab" width="800" height="600" role="img" aria-label="Animated side view of a hand with tremor holding a cup; with ParkiCup the cup stays level."></canvas>
+      <div class="lab-foot">
+        <label><span data-i18n="lab.amp">Tremor intensity</span>
+          <input type="range" id="amp" min="0" max="100" value="55" aria-label="Tremor intensity">
+        </label>
+        <div class="readouts">
+          <div><span data-i18n="lab.r1">Hand tilt</span><b id="r-hand" class="tab">0°</b></div>
+          <div><span data-i18n="lab.r2">Cup tilt</span><b id="r-cup" class="tab good">0°</b></div>
+          <div><span data-i18n="lab.r3">Spill risk</span><b id="r-spill" class="tab good">0%</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem" id="problem">
+  <div class="wrap">
+    <figure><img src="assets/problem_cup.jpg" alt="An older person's hands gripping a small white ceramic cup by its handle" loading="lazy"></figure>
+    <div>
+      <span class="eyebrow" data-i18n="problem.eyebrow">The problem</span>
+      <h2 style="margin:.8rem 0 1.4rem" data-i18n="problem.h2">A cup is designed for a hand that holds still.</h2>
+      <p class="lede" data-i18n="problem.p1">Parkinson's brings tremor, muscle stiffness, slow movement and reduced grip strength. A standard cup answers none of that: the handle is small, the mass sits high, and every shake of the wrist travels straight into the liquid.</p>
+      <p class="lede" style="margin-top:1rem" data-i18n="problem.p2">Spills follow. So does the quieter cost: people stop drinking in company, wait for help, or simply drink less. ParkiCup was designed so that the drink, not the person, does the adapting.</p>
+      <div class="wave" aria-hidden="true">
+        <svg viewBox="0 0 600 70" preserveAspectRatio="none" id="wave-svg"><path id="wave-hand" d="" fill="none" stroke="#F0A24A" stroke-width="2"/><path id="wave-cup" d="" fill="none" stroke="#4FCB93" stroke-width="2"/></svg>
+        <div class="mono"><span data-i18n="problem.w1">amber: hand · green: cup with ParkiCup</span><span>5.1 Hz</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FILM -->
+<section class="film" id="film">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow" data-i18n="film.eyebrow">Film · the mechanism at work</span>
+      <h2 data-i18n="film.h2">Watch the hand shake and the tea stay still.</h2>
+      <p class="lede" data-i18n="film.lede">Two short films made from the prototype photographs. The hand carries a 4–6 Hz tremor; the rings swing, the cradle hangs level, nothing spills.</p>
+    </div>
+    <div class="films">
+      <figure class="clip">
+        <video src="https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_115711_5ae812c2-2492-4402-9859-c932a6aaf4a2.mp4" poster="https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_115501_b5165d17-471e-42fd-b34e-7de237e60ed0.png" autoplay muted loop playsinline preload="metadata" onerror="this.outerHTML='<img src=\'assets/step5_prototype.jpg\' alt=\'\'>'"></video>
+        <figcaption><span data-i18n="film.c1">Morning tea, tremor present, cup level</span><span class="mono">00:05</span></figcaption>
+      </figure>
+      <figure class="clip tall">
+        <video src="https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_115715_393b14c5-814c-4e42-8cf2-c0e025783f53.mp4" poster="https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_115504_c4cf2103-2aab-4253-8cf0-ae24a6421fec.png" autoplay muted loop playsinline preload="metadata" onerror="this.outerHTML='<img src=\'assets/step4_parts.jpg\' alt=\'\'>'"></video>
+        <figcaption><span data-i18n="film.c2">The two pivot rings, close up</span><span class="mono">00:05</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- MECHANISM -->
+<section class="mech" id="mechanism">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow" data-i18n="mech.eyebrow">How it works</span>
+      <h2 style="margin-top:.8rem" data-i18n="mech.h2">Four printed parts. One quiet idea.</h2>
+    </div>
+    <div class="mech-grid">
+      <div class="exploded">
+        <img src="assets/step4_parts.jpg" alt="The four 3D-printed ParkiCup parts laid out: a Y-shaped handle, a conical cup cradle and two pivot rings">
+        <span class="pin" style="left:22%;top:38%">1</span>
+        <span class="pin" style="left:75%;top:32%">2</span>
+        <span class="pin" style="left:24%;top:76%">3</span>
+        <span class="pin" style="left:66%;top:76%">4</span>
+      </div>
+      <div class="parts">
+        <div class="part"><span class="n">01</span><div><h3 data-i18n="mech.p1h">Wide handle</h3><p data-i18n="mech.p1">A Y-shaped grip the whole hand can close around. No pinch grip, no small loop; the load sits low and close to the wrist.</p></div></div>
+        <div class="part"><span class="n">02</span><div><h3 data-i18n="mech.p2h">Cup cradle</h3><p data-i18n="mech.p2">A conical sleeve that takes an ordinary cup or glass. The drink you already own, made usable again.</p></div></div>
+        <div class="part"><span class="n">03</span><div><h3 data-i18n="mech.p3h">Outer pivot ring</h3><p data-i18n="mech.p3">Mounted to the handle on two opposing pins. It lets the cradle swing front to back while the hand tilts.</p></div></div>
+        <div class="part"><span class="n">04</span><div><h3 data-i18n="mech.p4h">Inner pivot ring</h3><p data-i18n="mech.p4">Pinned to the outer ring at 90°. Together the two rings form a gimbal: the cradle hangs from its pivots and gravity keeps the liquid level, whatever the hand does.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <span class="eyebrow" data-i18n="process.eyebrow">Design process</span>
+        <h2 style="margin-top:.8rem" data-i18n="process.h2">From sketch to a part you can hold.</h2>
+      </div>
+      <p class="lede" style="max-width:38ch" data-i18n="process.lede">Every part was modelled, printed and assembled by the designer herself. These are the original photographs from the build.</p>
+    </div>
+    <div class="track">
+      <article class="step"><figure><img src="assets/step1_cad.jpg" alt="CAD model of the ParkiCup handle and cradle with dimension lines" loading="lazy"></figure><div class="k"><span>01</span><span data-i18n="process.k1">CAD</span></div><h3 data-i18n="process.h1">CAD modelling</h3><p data-i18n="process.p1">Handle, cradle and rings are drawn as separate bodies so each can be reprinted and tuned on its own.</p></article>
+      <article class="step"><figure><img src="assets/step2_concept.jpg" alt="White rendering of the assembled ParkiCup holder" loading="lazy"></figure><div class="k"><span>02</span><span data-i18n="process.k2">Render</span></div><h3 data-i18n="process.h2s">Concept development</h3><p data-i18n="process.p2">Renders check the balance point of the cradle and how far the rings can swing without touching the handle.</p></article>
+      <article class="step"><figure><img src="assets/step3_print.jpg" alt="Slicer software showing the four green ParkiCup parts arranged on a print bed" loading="lazy"></figure><div class="k"><span>03</span><span data-i18n="process.k3">Slice</span></div><h3 data-i18n="process.h3s">Print preparation</h3><p data-i18n="process.p3">All four parts fit on one bed. Rings print flat for roundness; the handle prints upright for strength along the grip.</p></article>
+      <article class="step"><figure><img src="assets/step4_parts.jpg" alt="The four printed white parts on a wooden table" loading="lazy"></figure><div class="k"><span>04</span><span data-i18n="process.k4">Assemble</span></div><h3 data-i18n="process.h4s">Prototype assembly</h3><p data-i18n="process.p4">Rings snap onto their pins by hand. No screws, no glue, so a worn part can be swapped in seconds.</p></article>
+      <article class="step"><figure><img src="assets/step5_prototype.jpg" alt="A hand holding the assembled ParkiCup prototype, the cradle hanging level inside its two rings" loading="lazy"></figure><div class="k"><span>05</span><span data-i18n="process.k5">Test</span></div><h3 data-i18n="process.h5s">Final prototype</h3><p data-i18n="process.p5">Held, tilted and shaken. The cradle finds level on its own and the wide handle sits comfortably in the palm.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- SPECS -->
+<section class="specs" id="specs">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow" data-i18n="specs.eyebrow">Steady by design</span>
+      <h2 style="margin:.8rem 0 1.2rem" data-i18n="specs.h2">What the prototype is, plainly.</h2>
+      <p class="lede" data-i18n="specs.lede">Numbers below describe the first working prototype. They will be updated as testing with users continues.</p>
+    </div>
+    <dl class="spec-table">
+      <div><dt data-i18n="specs.d1">Stabilisation</dt><dd data-i18n="specs.v1">Two-axis passive gimbal, gravity-levelled cradle</dd></div>
+      <div><dt data-i18n="specs.d2">Tremor addressed</dt><dd data-i18n="specs.v2">Rest and action tremor in the 4–6 Hz band; wrist tilt front-back and side-side</dd></div>
+      <div><dt data-i18n="specs.d3">Grip</dt><dd data-i18n="specs.v3">Full-hand Y handle, load carried low and near the wrist</dd></div>
+      <div><dt data-i18n="specs.d4">Drinking</dt><dd data-i18n="specs.v4">Sip normally or through the foldable straw without lifting</dd></div>
+      <div><dt data-i18n="specs.d5">Fits</dt><dd data-i18n="specs.v5">Standard ceramic cups and drinking glasses in the cradle</dd></div>
+      <div><dt data-i18n="specs.d6">Parts</dt><dd data-i18n="specs.v6">4, all 3D-printed, tool-free assembly</dd></div>
+      <div><dt data-i18n="specs.d7">Care</dt><dd data-i18n="specs.v7">Rinse; parts separate by hand for cleaning</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="wrap">
+    <span class="eyebrow" data-i18n="gallery.eyebrow">In use</span>
+    <h2 style="margin-top:.8rem" data-i18n="gallery.h2">Back at the table.</h2>
+    <div class="grid">
+      <figure class="g1"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_115958_6e486a00-16e9-4705-8c64-83864ef165f6.png" data-fallback="assets/mission_walker.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="An older woman at a sunlit kitchen table holding a mug in the ParkiCup" loading="lazy"></figure>
+      <figure class="g2"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_115618_819c5e64-25e9-4f2c-91e0-a0659f1cb7e7.png" data-fallback="assets/mission_care.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="An older woman drinking through the foldable straw while her daughter sits beside her" loading="lazy"></figure>
+      <figure class="g3"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_115622_8a8e584f-a0c6-40d7-8b1d-c225b74a9336.png" data-fallback="assets/step5_prototype.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="Macro of the two pivot rings and the open cradle holding a mug" loading="lazy"></figure>
+      <figure class="g4"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_115625_1d9157bd-a14c-45aa-8e7e-3a941b2450f9.png" data-fallback="assets/mission_vision.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="An older man laughing with friends at a café, coffee held steady in the ParkiCup" loading="lazy"></figure>
+      <figure class="g5"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_115954_4e0ea426-d5de-449e-a25a-9d6325f8632e.png" data-fallback="assets/step2_concept.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="The ParkiCup on a linen tablecloth with a mug and straw" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- DESIGNER -->
+<section class="designer" id="designer">
+  <div class="wrap">
+    <figure><img src="assets/designer.jpg" alt="Portrait of Selin, the designer of ParkiCup" loading="lazy"></figure>
+    <div class="copy">
+      <span class="eyebrow" data-i18n="designer.eyebrow">About the designer</span>
+      <p class="quote" data-i18n="designer.quote">"How can design make everyday life easier for people living with Parkinson's?"</p>
+      <p class="lede" data-i18n="designer.p1">Selin is a student with a strong interest in health, design and innovation. ParkiCup began with that one question, and she carried it through alone: research, CAD, printing, assembly and testing.</p>
+      <p class="lede" data-i18n="designer.p2">The project rests on a simple belief: thoughtful design can improve small but meaningful moments, and health, engineering and empathy belong in the same room.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products" id="products">
+  <div class="wrap">
+    <span class="eyebrow" data-i18n="products.eyebrow">Products</span>
+    <h2 style="margin-top:.8rem" data-i18n="products.h2">ParkiCup is the first. More are on the bench.</h2>
+    <div class="grid">
+      <article class="card lead">
+        <div class="img"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_115954_4e0ea426-d5de-449e-a25a-9d6325f8632e.png" data-fallback="assets/step5_prototype.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="The ParkiCup with a mug and straw on a linen tablecloth" loading="lazy"></div>
+        <span class="eyebrow" data-i18n="products.c1k">Prototype 01</span>
+        <h3>ParkiCup</h3>
+        <p data-i18n="products.c1">Gimbal-stabilised cup holder with a wide handle and foldable straw.</p>
+      </article>
+      <article class="card soon">
+        <span class="tag" data-i18n="products.soon">In development</span>
+        <h3 data-i18n="products.c2h">Next product</h3>
+        <p data-i18n="products.c2">Further everyday aids for tremor and reduced grip are being designed on the same principle: let the object adapt, not the person.</p>
+      </article>
+      <article class="card soon">
+        <span class="tag" data-i18n="products.soon2">Your idea</span>
+        <h3 data-i18n="products.c3h">Tell us what is hard</h3>
+        <p data-i18n="products.c3">If a daily task has become difficult because of tremor, write to us. Real problems set the next design brief.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- JOURNAL -->
+<section class="journal" id="journal">
+  <div class="wrap">
+    <span class="eyebrow" data-i18n="journal.eyebrow">Journal · Instagram</span>
+    <h2 style="margin-top:.8rem" data-i18n="journal.h2">Short, useful posts on living well with tremor.</h2>
+    <p class="lede" style="margin-top:1rem" data-i18n="journal.lede">Three posts a week: what Parkinson's does to the hands, small adaptations that help today, and the making of ParkiCup.</p>
+    <div class="grid">
+      <article class="post"><span class="k" data-i18n="journal.k1">Series · Understand</span><div class="over"><h3 data-i18n="journal.t1">Why 4–6 Hz matters</h3></div></article>
+      <article class="post light"><span class="k" data-i18n="journal.k2">Series · Adapt</span><div class="over"><h3 data-i18n="journal.t2">Fill the cup half way, sit with elbows down</h3></div></article>
+      <article class="post alt"><img src="assets/step3_print.jpg" alt="" loading="lazy"><span class="k over" data-i18n="journal.k3">Series · Making</span><div class="over"><h3 data-i18n="journal.t3">Printing the rings flat</h3></div></article>
+      <article class="post alt"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_115625_1d9157bd-a14c-45aa-8e7e-3a941b2450f9.png" data-fallback="assets/problem_cup.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="" loading="lazy"><span class="k over" data-i18n="journal.k4">Series · Understand</span><div class="over"><h3 data-i18n="journal.t4">Grip strength and the small handle</h3></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="contact">
+  <div class="wrap">
+    <div class="box">
+      <span class="eyebrow" data-i18n="cta.eyebrow">Get involved</span>
+      <h2 data-i18n="cta.h2">Test a prototype, or help build the next one.</h2>
+      <p class="lede" data-i18n="cta.p">We are looking for people living with Parkinson's, carers and clinicians who would try ParkiCup and tell us what to change.</p>
+      <a class="btn" href="mailto:hello@parkicup.com" data-i18n="cta.btn">Write to us</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="year"></span> ParkiCup · <span data-i18n="foot.by">Designed and built by Selin</span></span>
+    <span data-i18n="foot.tag">Stability · Comfort · Independence · Accessibility</span>
+  </div>
+</footer>
+
+<script>
+/* ------------------------------------------------------------------ i18n */
+const T = {
+  tr: {
+    'nav.problem':'Sorun','nav.film':'Film','nav.mech':'Nasıl çalışır','nav.process':'Süreç','nav.designer':'Tasarımcı','nav.journal':'Günlük',
+    'hero.eyebrow':'Yardımcı bardak tutucu · Prototip 01',
+    'hero.h1':'El titrer.<br>Bardak <em>dengede kalır.</em>',
+    'hero.lede':'ParkiCup, Parkinson ile yaşayan insanlar için gimbal dengeli bir bardak tutucudur. Birbirine dik iki dönen halka içeceği titremeden ayırır, geniş sap zayıf kavramaya uyar, katlanır pipet ise bardağı hiç kaldırmadan içmeyi mümkün kılar.',
+    'hero.cta1':'Nasıl çalıştığını gör','hero.cta2':'Titreme laboratuvarını dene',
+    'hero.s1':"Parkinson istirahat titremesi",'hero.s2':'Serbest dönen eksen','hero.s3':'3B basılı parça',
+    'lab.title':'Titreme laboratuvarı · canlı simülasyon','lab.off':'Sıradan bardak','lab.on':'ParkiCup ile',
+    'lab.amp':'Titreme şiddeti','lab.r1':'El eğimi','lab.r2':'Bardak eğimi','lab.r3':'Dökülme riski',
+    'problem.eyebrow':'Sorun','problem.h2':'Bardak, sabit duran bir el için tasarlanmıştır.',
+    'problem.p1':"Parkinson; titreme, kas sertliği, yavaş hareket ve azalmış kavrama gücü getirir. Standart bir bardak bunların hiçbirine cevap vermez: sapı küçüktür, kütle yukarıdadır ve bileğin her sarsıntısı doğrudan sıvıya geçer.",
+    'problem.p2':'Sonuç dökülmedir. Daha sessiz bir bedel de var: insanlar başkalarının yanında içmeyi bırakır, yardım bekler ya da daha az su içer. ParkiCup, uyum sağlayanın kişi değil içecek olması için tasarlandı.',
+    'problem.w1':'turuncu: el · yeşil: ParkiCup ile bardak',
+    'film.eyebrow':'Film · mekanizma iş başında','film.h2':'El titrerken çayın kıpırdamadığını izleyin.',
+    'film.lede':'Prototip fotoğraflarından üretilmiş iki kısa film. Elde 4–6 Hz titreme var; halkalar salınıyor, yuva düz asılı kalıyor, hiçbir şey dökülmüyor.',
+    'film.c1':'Sabah çayı, titreme var, bardak düz','film.c2':'İki dönme halkası, yakın plan',
+    'gallery.eyebrow':'Kullanımda','gallery.h2':'Masaya geri dönüş.',
+    'mech.eyebrow':'Nasıl çalışır','mech.h2':'Dört basılı parça. Tek sakin fikir.',
+    'mech.p1h':'Geniş sap','mech.p1':'Tüm elin kavrayabildiği Y biçimli tutamak. Parmak ucu kavraması ya da küçük kulp yok; yük alçakta ve bileğe yakın durur.',
+    'mech.p2h':'Bardak yuvası','mech.p2':'Sıradan bir bardağı ya da kupayı alan konik kılıf. Zaten sahip olduğunuz bardak yeniden kullanılabilir olur.',
+    'mech.p3h':'Dış dönme halkası','mech.p3':'Sapa iki karşılıklı pimle bağlıdır. El eğilirken yuvanın öne-arkaya salınmasına izin verir.',
+    'mech.p4h':'İç dönme halkası','mech.p4':'Dış halkaya 90° açıyla pimlenir. İki halka birlikte bir gimbal oluşturur: yuva pimlerinden sarkar ve el ne yaparsa yapsın yerçekimi sıvıyı düz tutar.',
+    'process.eyebrow':'Tasarım süreci','process.h2':'Eskizden elinizde tutabileceğiniz bir parçaya.',
+    'process.lede':'Her parça tasarımcının kendisi tarafından modellendi, basıldı ve monte edildi. Bunlar yapım sürecinin orijinal fotoğrafları.',
+    'process.k1':'CAD','process.h1':'CAD modelleme','process.p1':'Sap, yuva ve halkalar ayrı gövdeler olarak çizildi; böylece her biri tek başına yeniden basılıp ayarlanabiliyor.',
+    'process.k2':'Render','process.h2s':'Konsept geliştirme','process.p2':'Renderlar yuvanın denge noktasını ve halkaların sapa değmeden ne kadar salınabildiğini kontrol eder.',
+    'process.k3':'Dilimleme','process.h3s':'Baskı hazırlığı','process.p3':'Dört parça tek tablaya sığar. Halkalar yuvarlaklık için yatık, sap tutamak boyunca dayanım için dik basılır.',
+    'process.k4':'Montaj','process.h4s':'Prototip montajı','process.p4':'Halkalar pimlerine elle oturur. Vida ya da yapıştırıcı yok; aşınan parça saniyeler içinde değişir.',
+    'process.k5':'Test','process.h5s':'Son prototip','process.p5':'Tutuldu, eğildi, sallandı. Yuva kendi başına dengeyi buluyor, geniş sap avuca rahatça oturuyor.',
+    'specs.eyebrow':'Tasarım gereği dengeli','specs.h2':'Prototip, açık ve net.','specs.lede':'Aşağıdaki değerler çalışan ilk prototipi tanımlar. Kullanıcı testleri sürdükçe güncellenecek.',
+    'specs.d1':'Dengeleme','specs.v1':'İki eksenli pasif gimbal, yerçekimiyle düzlenen yuva',
+    'specs.d2':'Hedeflenen titreme','specs.v2':'4–6 Hz bandında istirahat ve hareket titremesi; bilek eğimi öne-arkaya ve yanlara',
+    'specs.d3':'Kavrama','specs.v3':'Tüm el ile tutulan Y sap, yük alçakta ve bileğe yakın',
+    'specs.d4':'İçme','specs.v4':'Normal yudumlama ya da bardağı kaldırmadan katlanır pipetle',
+    'specs.d5':'Uyumluluk','specs.v5':'Yuvaya standart seramik kupalar ve su bardakları',
+    'specs.d6':'Parça','specs.v6':'4 parça, tamamı 3B baskı, aletsiz montaj',
+    'specs.d7':'Bakım','specs.v7':'Durulayın; parçalar temizlik için elle ayrılır',
+    'designer.eyebrow':'Tasarımcı hakkında','designer.quote':'"Tasarım, Parkinson ile yaşayan insanların günlük hayatını nasıl kolaylaştırabilir?"',
+    'designer.p1':'Selin; sağlık, tasarım ve inovasyona güçlü ilgi duyan bir öğrenci. ParkiCup bu tek soruyla başladı ve Selin süreci tek başına yürüttü: araştırma, CAD, baskı, montaj ve test.',
+    'designer.p2':'Proje basit bir inanca dayanıyor: düşünülmüş tasarım küçük ama anlamlı anları iyileştirebilir; sağlık, mühendislik ve empati aynı odada olmalı.',
+    'products.eyebrow':'Ürünler','products.h2':'ParkiCup ilki. Yenileri tezgâhta.',
+    'products.c1k':'Prototip 01','products.c1':'Geniş saplı ve katlanır pipetli, gimbal dengeli bardak tutucu.',
+    'products.soon':'Geliştiriliyor','products.c2h':'Sıradaki ürün','products.c2':'Titreme ve azalmış kavrama için yeni günlük yardımcılar aynı ilkeyle tasarlanıyor: uyum sağlayan kişi değil, nesne olsun.',
+    'products.soon2':'Sizin fikriniz','products.c3h':'Neyin zor olduğunu anlatın','products.c3':'Titreme yüzünden zorlaşan bir günlük iş varsa bize yazın. Gerçek sorunlar bir sonraki tasarımın briefini belirler.',
+    'journal.eyebrow':'Günlük · Instagram','journal.h2':'Titremeyle iyi yaşamak üzerine kısa, işe yarar paylaşımlar.',
+    'journal.lede':"Haftada üç paylaşım: Parkinson'ın ellere etkisi, bugün işe yarayan küçük uyarlamalar ve ParkiCup'ın yapım süreci.",
+    'journal.k1':'Seri · Anla','journal.t1':'4–6 Hz neden önemli','journal.k2':'Seri · Uyarla','journal.t2':'Bardağı yarıya kadar doldurun, dirsekler aşağıda oturun',
+    'journal.k3':'Seri · Yapım','journal.t3':'Halkaları yatık basmak','journal.k4':'Seri · Anla','journal.t4':'Kavrama gücü ve küçük kulp',
+    'cta.eyebrow':'Katılın','cta.h2':'Bir prototipi deneyin ya da sıradakini birlikte yapalım.',
+    'cta.p':"ParkiCup'ı deneyip neyi değiştirmemiz gerektiğini söyleyecek Parkinson ile yaşayan insanlar, bakım verenler ve klinisyenler arıyoruz.",
+    'cta.btn':'Bize yazın','foot.by':'Selin tarafından tasarlandı ve üretildi','foot.tag':'Denge · Konfor · Bağımsızlık · Erişilebilirlik'
+  },
+  en: {}
+};
+document.querySelectorAll('[data-i18n]').forEach(el => { T.en[el.dataset.i18n] = el.innerHTML; });
+
+function setLang(lang){
+  const apply = () => {
+    document.documentElement.lang = lang;
+    document.documentElement.dataset.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const s = T[lang][el.dataset.i18n]; if (s != null) el.innerHTML = s;
+    });
+    document.getElementById('lang-en').setAttribute('aria-pressed', lang === 'en');
+    document.getElementById('lang-tr').setAttribute('aria-pressed', lang === 'tr');
+  };
+  if (document.startViewTransition) document.startViewTransition(apply); else apply();
+  try { localStorage.setItem('parkicup-lang', lang); } catch (e) {}
+}
+document.getElementById('lang-en').addEventListener('click', () => setLang('en'));
+document.getElementById('lang-tr').addEventListener('click', () => setLang('tr'));
+try { const saved = localStorage.getItem('parkicup-lang'); if (saved === 'tr') setLang('tr'); } catch (e) {}
+document.getElementById('year').textContent = new Date().getFullYear();
+
+/* ------------------------------------------------------------ tremor lab */
+(() => {
+  const cv = document.getElementById('lab');
+  const ctx = cv.getContext('2d');
+  const ampEl = document.getElementById('amp');
+  const rHand = document.getElementById('r-hand'), rCup = document.getElementById('r-cup'), rSpill = document.getElementById('r-spill');
+  const bOff = document.getElementById('mode-off'), bOn = document.getElementById('mode-on');
+  let stabilised = true;
+  bOff.addEventListener('click', () => { stabilised = false; bOff.setAttribute('aria-pressed', true); bOn.setAttribute('aria-pressed', false); });
+  bOn.addEventListener('click', () => { stabilised = true; bOn.setAttribute('aria-pressed', true); bOff.setAttribute('aria-pressed', false); });
+
+  const css = (v) => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // physics state
+  let t = 0, last = performance.now();
+  let cupA = 0, cupW = 0;          // gimbal cradle angle & angular velocity (rad, rad/s)
+  let liq = 0, liqW = 0;           // liquid surface angle relative to cup
+  let spill = 0, peakHand = 0, peakCup = 0;
+  const g = 9.81, L = 0.09, damp = 6.5; // pendulum length (m) of the hung cradle, viscous damping
+
+  function handAngle(time, amp){
+    // Parkinsonian rest tremor: dominant ~5 Hz with a weaker 4.3 Hz component and slow wrist drift.
+    const a = amp * 0.32; // up to ~18° at full slider
+    return a * (Math.sin(2*Math.PI*5.1*time) + 0.45*Math.sin(2*Math.PI*4.3*time + 1.3)) + a*0.35*Math.sin(2*Math.PI*0.45*time);
+  }
+
+  function step(dt){
+    const amp = ampEl.value / 100;
+    t += dt;
+    const h = handAngle(t, amp);
+    const hPrev = handAngle(t - dt, amp);
+    const hAcc = (handAngle(t + dt, amp) - 2*h + hPrev) / (dt*dt); // rad/s²
+    if (stabilised){
+      // cradle hangs from pivots: driven pendulum with the hand's angular accel as a small forcing term
+      const torque = -(g/L)*Math.sin(cupA) - damp*cupW - 0.015*hAcc;
+      cupW += torque*dt; cupA += cupW*dt;
+    } else {
+      cupA = h; cupW = (h - hPrev)/dt;
+    }
+    // liquid slosh inside the cup: spring toward level, driven by cup rotation
+    const target = -cupA;
+    const acc = 260*(target - liq) - 9*liqW;
+    liqW += acc*dt; liq += liqW*dt;
+    const tilt = Math.abs(cupA + liq);      // absolute liquid surface tilt vs cup wall
+    const risk = Math.min(1, Math.max(0, (Math.abs(cupA)*180/Math.PI - 4) / 22));
+    spill += (risk - spill)*Math.min(1, dt*3);
+    peakHand = Math.max(peakHand*0.995, Math.abs(h));
+    peakCup = Math.max(peakCup*0.995, Math.abs(cupA));
+    return h;
+  }
+
+  function draw(h){
+    const W = cv.width, H = cv.height;
+    ctx.clearRect(0,0,W,H);
+    const ink = css('--ink'), ink3 = css('--ink-3'), cobalt = css('--cobalt'), line = css('--line');
+    const steady = css('--steady'), tremor = css('--tremor'), paper = css('--paper');
+    const cx = W*0.5, cy = H*0.52;
+
+    // grid + horizon reference
+    ctx.strokeStyle = line; ctx.lineWidth = 1; ctx.setLineDash([4,8]);
+    ctx.beginPath(); ctx.moveTo(W*0.08, cy); ctx.lineTo(W*0.92, cy); ctx.stroke(); ctx.setLineDash([]);
+    ctx.fillStyle = ink3; ctx.font = '12px "IBM Plex Mono", monospace'; ctx.fillText('level', W*0.08, cy-8);
+
+    // hand + handle (rotates with tremor)
+    ctx.save(); ctx.translate(cx, cy+140); ctx.rotate(h);
+    ctx.strokeStyle = tremor; ctx.lineWidth = 14; ctx.lineCap = 'round';
+    ctx.beginPath(); ctx.moveTo(0, 120); ctx.lineTo(0, 0); ctx.stroke();           // forearm/handle stem
+    ctx.strokeStyle = ink; ctx.lineWidth = 10;
+    ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(-95, -150); ctx.moveTo(0, 0); ctx.lineTo(95, -150); ctx.stroke(); // Y handle
+    if (stabilised){
+      // outer ring (moves with hand)
+      ctx.strokeStyle = cobalt; ctx.lineWidth = 8;
+      ctx.beginPath(); ctx.ellipse(0, -150, 100, 34, 0, 0, Math.PI*2); ctx.stroke();
+      ctx.fillStyle = paper; ctx.strokeStyle = ink; ctx.lineWidth = 3;
+      [-100,100].forEach(x => { ctx.beginPath(); ctx.arc(x, -150, 6, 0, Math.PI*2); ctx.fill(); ctx.stroke(); });
+    }
+    ctx.restore();
+
+    // cradle + cup (level when stabilised)
+    const pivotX = cx + Math.sin(h)*(-140+150) * 0, pivotY = cy - 10;
+    ctx.save(); ctx.translate(cx + Math.sin(h)*(-10), pivotY - Math.cos(h)*0); ctx.rotate(cupA);
+    if (stabilised){
+      ctx.strokeStyle = cobalt; ctx.lineWidth = 8;
+      ctx.beginPath(); ctx.ellipse(0, 0, 80, 28, 0, 0, Math.PI*2); ctx.stroke();  // inner ring
+    }
+    // cup body
+    ctx.fillStyle = paper; ctx.strokeStyle = ink; ctx.lineWidth = 4;
+    ctx.beginPath(); ctx.moveTo(-64, -70); ctx.lineTo(64, -70); ctx.lineTo(48, 90); ctx.lineTo(-48, 90); ctx.closePath(); ctx.fill(); ctx.stroke();
+    // liquid
+    ctx.save(); ctx.beginPath(); ctx.moveTo(-63, -69); ctx.lineTo(63, -69); ctx.lineTo(47, 89); ctx.lineTo(-47, 89); ctx.closePath(); ctx.clip();
+    ctx.translate(0, 20); ctx.rotate(liq);
+    ctx.fillStyle = stabilised ? steady : tremor; ctx.globalAlpha = .85;
+    ctx.fillRect(-140, -12, 280, 200);
+    ctx.restore();
+    ctx.restore();
+
+    // straw hint when stabilised
+    if (stabilised){
+      ctx.strokeStyle = ink3; ctx.lineWidth = 3; ctx.setLineDash([]);
+      ctx.beginPath(); ctx.moveTo(cx+40, cy-80); ctx.lineTo(cx+58, cy-150); ctx.stroke();
+    }
+
+    // status label
+    ctx.fillStyle = stabilised ? steady : tremor; ctx.font = '600 13px "Albert Sans", sans-serif';
+    ctx.fillText(stabilised ? (document.documentElement.lang === 'tr' ? 'Gimbal aktif: bardak yerçekimiyle dengeleniyor' : 'Gimbal active: cradle self-levels under gravity')
+                            : (document.documentElement.lang === 'tr' ? 'Sıradan bardak: her sarsıntı sıvıya geçiyor' : 'Ordinary cup: every shake reaches the liquid'), W*0.08, H-24);
+  }
+
+  function frame(now){
+    const dt = Math.min(0.033, (now - last)/1000); last = now;
+    // sub-step for stability
+    let h = 0; for (let i=0;i<4;i++) h = step(dt/4);
+    draw(h);
+    const hd = (peakHand*180/Math.PI).toFixed(1), cd = (peakCup*180/Math.PI).toFixed(1);
+    rHand.textContent = hd + '°'; rCup.textContent = cd + '°';
+    rCup.className = 'tab ' + (peakCup*180/Math.PI < 5 ? 'good' : 'bad');
+    const sp = Math.round(spill*100); rSpill.textContent = sp + '%'; rSpill.className = 'tab ' + (sp < 25 ? 'good' : 'bad');
+    if (!reduced) requestAnimationFrame(frame);
+  }
+  // reduced-motion viewers get a single settled frame
+  if (reduced){ for (let i=0;i<200;i++) step(0.01); draw(handAngle(t, ampEl.value/100)); rHand.textContent='—'; rCup.textContent='—'; rSpill.textContent='—'; }
+  else requestAnimationFrame(frame);
+
+  /* problem-section waveform (static SVG paths) */
+  const hand = [], cup = [];
+  for (let x=0;x<=600;x+=2){ const tt = x/120; const a = 22*(Math.sin(2*Math.PI*5.1*tt)+0.45*Math.sin(2*Math.PI*4.3*tt+1.3)); hand.push([x, 35 - a]); cup.push([x, 35 - a*0.07]); }
+  const d = pts => pts.map((p,i)=> (i?'L':'M')+p[0].toFixed(1)+' '+p[1].toFixed(1)).join(' ');
+  document.getElementById('wave-hand').setAttribute('d', d(hand));
+  document.getElementById('wave-cup').setAttribute('d', d(cup));
+})();
+</script>
+</body>
+</html>

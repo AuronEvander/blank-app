@@ -1,0 +1,134 @@
+[
+ {
+  "id": "w1-mon",
+  "week": 1,
+  "day": "mon",
+  "series": "understand",
+  "status": "scheduled",
+  "image": "site/assets/problem_cup.jpg",
+  "caption_tr": "Parkinson'da istirahat titremesi çoğunlukla saniyede 4–6 kez tekrar eder. Bu hız, sıradan bir bardaktaki sıvıyı dalgalandırmak için tam yeterlidir. ParkiCup'ın çıkış noktası bu: titremeyi durdurmak değil, bardağı titremeden ayırmak. #ParkiCup #Parkinson #Titreme",
+  "caption_en": "Parkinson's rest tremor usually repeats 4–6 times a second. That is exactly the rate that sets the liquid in an ordinary cup sloshing. ParkiCup starts here: not stopping the tremor, but separating the cup from it. #ParkiCup #Parkinsons #Tremor",
+  "image_url": "https://raw.githubusercontent.com/AuronEvander/blank-app/main/site/assets/problem_cup.jpg"
+ },
+ {
+  "id": "w1-wed",
+  "week": 1,
+  "day": "wed",
+  "series": "making",
+  "status": "scheduled",
+  "image": "site/assets/designer.jpg",
+  "caption_tr": "Merhaba, ben Selin. ParkiCup tek bir soruyla başladı: tasarım, Parkinson ile yaşayan insanların günlük hayatını nasıl kolaylaştırabilir? Araştırmadan baskıya kadar her adımı bu hesapta paylaşacağım. #ParkiCup #AssistiveDesign",
+  "caption_en": "Hi, I'm Selin. ParkiCup began with one question: how can design make everyday life easier for people living with Parkinson's? I'll share every step here, from research to printing. #ParkiCup #AssistiveDesign",
+  "image_url": "https://raw.githubusercontent.com/AuronEvander/blank-app/main/site/assets/designer.jpg"
+ },
+ {
+  "id": "w1-fri",
+  "week": 1,
+  "day": "fri",
+  "series": "adapt",
+  "status": "scheduled",
+  "image": "site/media/ai_breakfast.png",
+  "caption_tr": "Bugün işe yarayan küçük bir uyarlama: bardağı yarıya kadar doldurun ve dirseklerinizi masaya dayayın. Daha kısa kol, daha az salınım. #ParkiCup #Uyarla",
+  "caption_en": "A small adaptation that helps today: fill the cup half way and rest your elbows on the table. Shorter lever, less swing. #ParkiCup #Adapt",
+  "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_115958_6e486a00-16e9-4705-8c64-83864ef165f6.png"
+ },
+ {
+  "id": "w2-mon",
+  "week": 2,
+  "day": "mon",
+  "series": "making",
+  "status": "scheduled",
+  "image": "site/assets/step4_parts.jpg",
+  "caption_tr": "Dört basılı parça, tek fikir. Y biçimli sap, konik yuva ve birbirine dik iki halka. Halkalar bir gimbal oluşturur: el eğilir, yuva pimlerinden sarkar, sıvı düz kalır. #ParkiCup #3DPrinting",
+  "caption_en": "Four printed parts, one idea. A Y-shaped handle, a conical cradle and two rings pinned at ninety degrees. The rings form a gimbal: the hand tilts, the cradle hangs from its pivots, the liquid stays level. #ParkiCup #3DPrinting",
+  "image_url": "https://raw.githubusercontent.com/AuronEvander/blank-app/main/site/assets/step4_parts.jpg"
+ },
+ {
+  "id": "w2-wed",
+  "week": 2,
+  "day": "wed",
+  "series": "understand",
+  "status": "scheduled",
+  "image": "site/assets/step5_prototype.jpg",
+  "caption_tr": "Küçük kulp, parmak ucu kavraması ister. Parkinson'da azalan kavrama gücü tam da bunu zorlaştırır. ParkiCup'ın sapı tüm elle tutulur; yük bileğe yakın durur. #ParkiCup #Parkinson",
+  "caption_en": "A small handle demands a pinch grip, and reduced grip strength in Parkinson's makes exactly that hard. ParkiCup's handle is held with the whole hand, the load close to the wrist. #ParkiCup #Parkinsons",
+  "image_url": "https://raw.githubusercontent.com/AuronEvander/blank-app/main/site/assets/step5_prototype.jpg"
+ },
+ {
+  "id": "w2-fri",
+  "week": 2,
+  "day": "fri",
+  "series": "adapt",
+  "status": "scheduled",
+  "image": "site/media/ai_straw_9x16.png",
+  "caption_tr": "Pipet neden işe yarar? Bardağı kaldırıp eğmeniz gerekmez; sıvı hiç hareket etmez. ParkiCup'ın katlanır pipeti bu yüzden var. #ParkiCup #Uyarla",
+  "caption_en": "Why a straw helps: you never lift or tilt the cup, so the liquid never moves. That is why ParkiCup carries a foldable straw. #ParkiCup #Adapt",
+  "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_115618_819c5e64-25e9-4f2c-91e0-a0659f1cb7e7.png"
+ },
+ {
+  "id": "w3-mon",
+  "week": 3,
+  "day": "mon",
+  "series": "making",
+  "status": "scheduled",
+  "image": "site/assets/step3_print.jpg",
+  "caption_tr": "Baskı hazırlığı: halkalar yuvarlaklık için yatık, sap tutamak boyunca dayanım için dik basılıyor. Dört parça tek tablaya sığıyor. #ParkiCup #3DPrinting",
+  "caption_en": "Print prep: rings print flat for roundness, the handle prints upright for strength along the grip. All four parts fit on one bed. #ParkiCup #3DPrinting",
+  "image_url": "https://raw.githubusercontent.com/AuronEvander/blank-app/main/site/assets/step3_print.jpg"
+ },
+ {
+  "id": "w3-wed",
+  "week": 3,
+  "day": "wed",
+  "series": "understand",
+  "status": "scheduled",
+  "image": "site/media/ai_cafe.png",
+  "caption_tr": "Dökülme korkusu insanları başkalarının yanında içmekten alıkoyar. Bu yüzden konu yalnızca bardak değil; masaya geri dönmek. #ParkiCup #Parkinson",
+  "caption_en": "Fear of spilling keeps people from drinking in company. So this is not only about a cup; it is about coming back to the table. #ParkiCup #Parkinsons",
+  "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_115625_1d9157bd-a14c-45aa-8e7e-3a941b2450f9.png"
+ },
+ {
+  "id": "w3-fri",
+  "week": 3,
+  "day": "fri",
+  "series": "adapt",
+  "status": "scheduled",
+  "image": "site/media/ai_product.png",
+  "caption_tr": "Ağır tabanlı bardak mı, hafif bardak mı? Ağır taban masada devrilmeyi azaltır; elde ise kütle ne kadar alçaktaysa o kadar iyidir. ParkiCup yükü alçağa taşır. #ParkiCup #Uyarla",
+  "caption_en": "Heavy-based cup or light cup? A heavy base resists tipping on the table; in the hand, the lower the mass the better. ParkiCup carries the load low. #ParkiCup #Adapt",
+  "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_115954_4e0ea426-d5de-449e-a25a-9d6325f8632e.png"
+ },
+ {
+  "id": "w4-mon",
+  "week": 4,
+  "day": "mon",
+  "series": "making",
+  "status": "scheduled",
+  "image": "site/media/ai_mechanism_reel.mp4",
+  "caption_tr": "Elde test: eğ, salla, izle. Yuva kendi başına dengeyi buluyor. #ParkiCup #Yapım",
+  "caption_en": "Hand test: tilt, shake, watch. The cradle finds level on its own. #ParkiCup #Making",
+  "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_115715_393b14c5-814c-4e42-8cf2-c0e025783f53.mp4"
+ },
+ {
+  "id": "w4-wed",
+  "week": 4,
+  "day": "wed",
+  "series": "understand",
+  "status": "scheduled",
+  "image": "site/media/ai_daughter.png",
+  "caption_tr": "Bakım verenler için: yardım etmek yerine destek olun. Bardağı siz tutmak yerine, tutmayı mümkün kılan aracı verin. #ParkiCup #Parkinson",
+  "caption_en": "For carers: support instead of helping. Instead of holding the cup, hand over the tool that makes holding possible. #ParkiCup #Parkinsons",
+  "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_115618_819c5e64-25e9-4f2c-91e0-a0659f1cb7e7.png"
+ },
+ {
+  "id": "w4-fri",
+  "week": 4,
+  "day": "fri",
+  "series": "making",
+  "status": "scheduled",
+  "image": "site/assets/step1_cad.jpg",
+  "caption_tr": "Sırada ne var? Titreme yüzünden zorlaşan bir günlük iş varsa yorumlara yazın. Gerçek sorunlar bir sonraki tasarımın briefini belirler. #ParkiCup",
+  "caption_en": "What's next? If a daily task has become hard because of tremor, tell us in the comments. Real problems set the next design brief. #ParkiCup",
+  "image_url": "https://raw.githubusercontent.com/AuronEvander/blank-app/main/site/assets/step1_cad.jpg"
+ }
+]
