@@ -143,6 +143,29 @@
       "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/fb3ebb9a-6791-467c-8085-dd0145a79f1d.mp4",
       "ratio": "9:16",
       "use": "Instagram Reel comparison, stacked with labels (ffmpeg composite)"
+    },
+    {
+      "file": "ai_after_genjutsu_same_motion.mp4",
+      "job": "cc7cdc86-3be0-4d54-9a29-3929523a4e1c",
+      "remote": "hf_20260913_125700_cc7cdc86-3be0-4d54-9a29-3929523a4e1c.mp4",
+      "ratio": "16:9",
+      "use": "After: the before-clip's exact hand motion transferred to the ParkiCup still (Genjutsu motion control)"
+    },
+    {
+      "file": "before_after_genjutsu_16x9.mp4",
+      "job": null,
+      "remote": null,
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/1c8813c6-d956-441e-bd9d-4745f327bf4e.mp4",
+      "ratio": "16:9",
+      "use": "Featured comparison on the site: before clip vs. Genjutsu after clip with identical hand motion"
+    },
+    {
+      "file": "before_after_genjutsu_9x16.mp4",
+      "job": null,
+      "remote": null,
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/e644a433-ede2-4cbc-bd4a-e644c1cc5a53.mp4",
+      "ratio": "9:16",
+      "use": "Instagram Reel comparison, identical hand motion"
     }
   ]
 }
