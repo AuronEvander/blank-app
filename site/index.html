@@ -131,13 +131,14 @@ canvas#lab{width:100%;aspect-ratio:4/3;display:block;background:linear-gradient(
 .compare .tag-row span{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;padding:.3rem .6rem;border-radius:999px;background:rgb(10 10 46 / .7);color:#fff}
 .films{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.7fr) minmax(0,.8fr) minmax(0,.8fr);grid-auto-rows:clamp(280px,30vw,480px);gap:1.2rem}
 .clip{aspect-ratio:auto;height:100%}
+.clip.wide2{grid-column:span 2}
 .clip{position:relative;border-radius:18px;overflow:hidden;background:var(--ink);aspect-ratio:16/9;max-width:100%}
 .clip.tall{aspect-ratio:3/4}
 .clip video,.clip img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .clip figcaption{position:absolute;left:0;right:0;bottom:0;padding:1rem 1.1rem;color:#fff;font-size:.85rem;background:linear-gradient(transparent,rgb(10 10 46 / .75));display:flex;justify-content:space-between;gap:1rem}
 .clip .mono{opacity:.8}
 @media (max-width:1000px){.films{grid-template-columns:1fr 1fr;grid-auto-rows:clamp(260px,44vw,420px)}}
-@media (max-width:600px){.films{grid-template-columns:1fr;grid-auto-rows:auto}.clip{height:auto;aspect-ratio:16/10}.clip.real,.clip.tall{aspect-ratio:9/12}}
+@media (max-width:600px){.films{grid-template-columns:1fr;grid-auto-rows:auto}.clip.wide2{grid-column:auto}.clip{height:auto;aspect-ratio:16/10}.clip.real,.clip.tall{aspect-ratio:9/12}}
 
 /* ---------- gallery ---------- */
 .gallery .grid{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:140px;gap:.8rem;margin-top:2rem}
@@ -342,6 +343,18 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
         <video src="https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_124039_6cd32570-8430-4a7a-b809-f31ddc4c64e7.mp4" poster="https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_123831_6665a28e-5f46-418c-8ad6-862feb6e2f38.png" autoplay muted loop playsinline preload="metadata" onerror="this.outerHTML='<img src=\'assets/real_1.jpg\' alt=\'\'>'"></video>
         <figcaption><span data-i18n="film.c3">The real prototype's movement, transferred to a user (Genjutsu)</span><span class="mono">00:04</span></figcaption>
       </figure>
+      <figure class="clip ">
+        <video src="https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_133606_c83a2d55-6213-4d4a-82d3-c8b38034c120.mp4" poster="https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_130729_92806b5e-561e-441f-abd4-84aee95180ae.png" autoplay muted loop playsinline preload="metadata" onerror="this.outerHTML='<img src=\'assets/real_2.jpg\' alt=\'\'>'"></video>
+        <figcaption><span data-i18n="film.c4">Elbows on the table, half a cup, a calm sip</span><span class="mono">00:08</span></figcaption>
+      </figure>
+      <figure class="clip wide2">
+        <video src="https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_133610_8ebd5cd8-c96c-4f26-8592-a10c26b4783d.mp4" poster="https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_124906_604fd5d3-3d19-4599-a7c9-44ddf57bd27f.png" autoplay muted loop playsinline preload="metadata" onerror="this.outerHTML='<img src=\'assets/real_1.jpg\' alt=\'\'>'"></video>
+        <figcaption><span data-i18n="film.c5">Back at the café table</span><span class="mono">00:08</span></figcaption>
+      </figure>
+      <figure class="clip ">
+        <video src="https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_133614_7a46958b-ea4f-4688-8dcb-d36d90b42a35.mp4" poster="https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_130736_8b9bb715-2a27-484d-91a6-79038ecc77b1.png" autoplay muted loop playsinline preload="metadata" onerror="this.outerHTML='<img src=\'assets/real_3.jpg\' alt=\'\'>'"></video>
+        <figcaption><span data-i18n="film.c6">The grip, close up</span><span class="mono">00:08</span></figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -425,6 +438,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
       <figure class="g3"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_123900_fa5bf23c-9171-4031-a4e2-a543c4bf75c3.png" data-fallback="assets/real_3.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="Macro of the two pivot rings and the open cradle holding a mug" loading="lazy"></figure>
       <figure class="g4"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_124906_604fd5d3-3d19-4599-a7c9-44ddf57bd27f.png" data-fallback="assets/real_2.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="An older man laughing with friends at a café, coffee held steady in the ParkiCup" loading="lazy"></figure>
       <figure class="g5"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_123838_006f0cfb-895f-43de-886c-076b6c91c416.png" data-fallback="assets/real_1.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="The ParkiCup on a linen tablecloth with a mug and straw" loading="lazy"></figure>
+      <figure class="g3"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_133622_1de97344-2f34-45f5-8c04-dc85add2aba2.png" data-fallback="assets/real_3.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="The five printed parts laid out in a row" loading="lazy"></figure>
+      <figure class="g5"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_133626_056a576b-d042-4fc0-9136-9ee1e0f102d8.png" data-fallback="assets/real_1.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="An elderly man drinking tea from the ParkiCup at breakfast" loading="lazy"></figure>
     </div>
   </div>
 </section>
@@ -449,7 +464,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
     <h2 style="margin-top:.8rem" data-i18n="products.h2">ParkiCup is the first. More are on the bench.</h2>
     <div class="grid">
       <article class="card lead">
-        <div class="img"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_123838_006f0cfb-895f-43de-886c-076b6c91c416.png" data-fallback="assets/real_1.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="The ParkiCup with a mug and straw on a linen tablecloth" loading="lazy"></div>
+        <div class="img"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_133619_49f3ad19-b3a8-4dde-890a-3a291a1e68a0.png" data-fallback="assets/real_1.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="The ParkiCup, side view, with a handleless cup inside" loading="lazy"></div>
         <span class="eyebrow" data-i18n="products.c1k">Prototype 02</span>
         <h3>ParkiCup</h3>
         <p data-i18n="products.c1">Gimbal-stabilised cup holder with a soft grip handle and foldable straw.</p>
@@ -522,7 +537,7 @@ const T = {
     'problem.w1':'turuncu: el · yeşil: ParkiCup ile bardak',
     'film.eyebrow':'Film · prototip elde','film.h2':'Aynı el, aynı titreme, aynı çay. Sadece tutucu değişiyor.','film.cmp1':'Öncesi · ParkiCup yok','film.cmp2':'Sonrası · ParkiCup ile','film.cmp3':'Aynı el hareketi (Genjutsu)',
     'film.lede':'Önce gerçeği: tasarımcının çektiği güncel prototip, yuva halkalarında serbestçe salınıyor. Sonra prototipi referans alan üç kısa yapay zeka filmi: ikisinde elde 4–6 Hz titreme var, üçüncüsü gerçek klibin hareketini bir kullanıcıya kopyalıyor.','film.c0':'Prototip 02, gerçek çekim',
-    'film.c1':'Sabah çayı, titreme var, bardak düz','film.c2':'İki dönme halkası, yakın plan','film.c3':'Gerçek prototipin hareketi bir kullanıcıya aktarıldı (Genjutsu)',
+    'film.c1':'Sabah çayı, titreme var, bardak düz','film.c2':'İki dönme halkası, yakın plan','film.c3':'Gerçek prototipin hareketi bir kullanıcıya aktarıldı (Genjutsu)','film.c4':'Dirsekler masada, yarım bardak, sakin bir yudum','film.c5':'Kafe masasına geri dönüş','film.c6':'Kavrama, yakın plan',
     'gallery.eyebrow':'Kullanımda','gallery.h2':'Masaya geri dönüş.',
     'mech.eyebrow':'Nasıl çalışır','mech.h2':'Beş parça. Tek sakin fikir.',
     'mech.p1h':'Kavrama sapı','mech.p1':'Yumuşak siyah köpükle kaplı düz bir çubuk; kupa kulpu gibi tüm elle tutulur. Parmak ucu kavraması ya da küçük kulp yok; yük bileğe yakın durur.',

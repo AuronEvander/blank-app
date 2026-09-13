@@ -194,6 +194,48 @@
       "remote": "hf_20260913_130736_8b9bb715-2a27-484d-91a6-79038ecc77b1.png",
       "ratio": "1:1",
       "use": "Journal/Instagram: grip strength and the small handle"
+    },
+    {
+      "file": "ai_product_side_white.png",
+      "job": "49f3ad19-b3a8-4dde-890a-3a291a1e68a0",
+      "remote": "hf_20260913_133619_49f3ad19-b3a8-4dde-890a-3a291a1e68a0.png",
+      "ratio": "1:1",
+      "use": "Clean e-commerce side view on white"
+    },
+    {
+      "file": "ai_parts_knolling.png",
+      "job": "1de97344-2f34-45f5-8c04-dc85add2aba2",
+      "remote": "hf_20260913_133622_1de97344-2f34-45f5-8c04-dc85add2aba2.png",
+      "ratio": "16:9",
+      "use": "Five parts laid out in a row (knolling)"
+    },
+    {
+      "file": "ai_breakfast_man.png",
+      "job": "056a576b-d042-4fc0-9136-9ee1e0f102d8",
+      "remote": "hf_20260913_133626_056a576b-d042-4fc0-9136-9ee1e0f102d8.png",
+      "ratio": "4:5",
+      "use": "Lifestyle: elderly man at breakfast"
+    },
+    {
+      "file": "ai_use_elbows.mp4",
+      "job": "c83a2d55-6213-4d4a-82d3-c8b38034c120",
+      "remote": "hf_20260913_133606_c83a2d55-6213-4d4a-82d3-c8b38034c120.mp4",
+      "ratio": "1:1",
+      "use": "Usage film: elbows on table, half cup (Kling 3.0)"
+    },
+    {
+      "file": "ai_use_cafe.mp4",
+      "job": "8ebd5cd8-c96c-4f26-8592-a10c26b4783d",
+      "remote": "hf_20260913_133610_8ebd5cd8-c96c-4f26-8592-a10c26b4783d.mp4",
+      "ratio": "16:9",
+      "use": "Usage film: café with friends (Kling 3.0)"
+    },
+    {
+      "file": "ai_use_grip.mp4",
+      "job": "7a46958b-ea4f-4688-8dcb-d36d90b42a35",
+      "remote": "hf_20260913_133614_7a46958b-ea4f-4688-8dcb-d36d90b42a35.mp4",
+      "ratio": "1:1",
+      "use": "Usage film: grip macro (Kling 3.0)"
     }
   ]
 }

@@ -41,7 +41,9 @@
   "image": "site/media/ig_adapt_half_cup.png",
   "caption_tr": "Bugün işe yarayan küçük bir uyarlama: bardağı yarıya kadar doldurun ve dirseklerinizi masaya dayayın. Daha kısa kol, daha az salınım. #ParkiCup #Uyarla",
   "caption_en": "A small adaptation that helps today: fill the cup half way and rest your elbows on the table. Shorter lever, less swing. #ParkiCup #Adapt",
-  "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_130729_92806b5e-561e-441f-abd4-84aee95180ae.png"
+  "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_130729_92806b5e-561e-441f-abd4-84aee95180ae.png",
+  "video": "site/media/ai_use_elbows.mp4",
+  "video_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_133606_c83a2d55-6213-4d4a-82d3-c8b38034c120.mp4"
  },
  {
   "id": "w2-mon",
@@ -63,7 +65,9 @@
   "image": "site/media/ig_understand_grip.png",
   "caption_tr": "Küçük kulp, parmak ucu kavraması ister. Parkinson'da azalan kavrama gücü tam da bunu zorlaştırır. ParkiCup'ın sapı tüm elle tutulur; yük bileğe yakın durur. #ParkiCup #Parkinson",
   "caption_en": "A small handle demands a pinch grip, and reduced grip strength in Parkinson's makes exactly that hard. ParkiCup's handle is held with the whole hand, the load close to the wrist. #ParkiCup #Parkinsons",
-  "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_130736_8b9bb715-2a27-484d-91a6-79038ecc77b1.png"
+  "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_130736_8b9bb715-2a27-484d-91a6-79038ecc77b1.png",
+  "video": "site/media/ai_use_grip.mp4",
+  "video_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_133614_7a46958b-ea4f-4688-8dcb-d36d90b42a35.mp4"
  },
  {
   "id": "w2-fri",
@@ -96,7 +100,9 @@
   "image": "site/media/ai_cafe.png",
   "caption_tr": "Dökülme korkusu insanları başkalarının yanında içmekten alıkoyar. Bu yüzden konu yalnızca bardak değil; masaya geri dönmek. #ParkiCup #Parkinson",
   "caption_en": "Fear of spilling keeps people from drinking in company. So this is not only about a cup; it is about coming back to the table. #ParkiCup #Parkinsons",
-  "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_124906_604fd5d3-3d19-4599-a7c9-44ddf57bd27f.png"
+  "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_124906_604fd5d3-3d19-4599-a7c9-44ddf57bd27f.png",
+  "video": "site/media/ai_use_cafe.mp4",
+  "video_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_133610_8ebd5cd8-c96c-4f26-8592-a10c26b4783d.mp4"
  },
  {
   "id": "w3-fri",
