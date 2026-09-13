@@ -23,7 +23,10 @@ prototype photographs, specs, the designer's story, a products roadmap and the
 Instagram journal. It deploys to GitHub Pages with the workflow in `deploy/` (see `deploy/README.md`
 for the one-time setup).
 
-AI-generated photos and films go in `site/media/`.
+`site/media/real_demo.mp4` is the designer's own footage of prototype 02 (navy print,
+foam grip, windowed cradle) and `site/assets/real_*.jpg` are frames from it. AI stills and
+films (GPT Image 2.5, Kling 3.0, Genjutsu motion transfer from the real clip) are listed in
+`site/media/manifest.json`; run `scripts/fetch_media.sh` to download them.
 
 ## Instagram content (`content/instagram/`)
 

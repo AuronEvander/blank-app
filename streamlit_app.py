@@ -270,14 +270,27 @@ def design() -> None:
             )
 
     st.markdown("")
+    serif("Prototype 02")
+    v1, v2 = st.columns([1, 1.4], gap="large")
+    with v1:
+        st.video(str(ASSETS / "prototype02.mp4"), autoplay=True, loop=True, muted=True)
+    with v2:
+        st.image(ASSETS / "prototype02.jpg", use_container_width=True)
+        body(
+            "The current build: navy print, a straight handle with a soft foam grip, "
+            "a D-shaped yoke carrying two nested pivot rings, and a windowed cradle that "
+            "takes an ordinary handleless cup. The cradle swings freely and finds level on its own."
+        )
+
+    st.markdown("")
     serif("Key features")
     f1, f2, f3 = st.columns(3, gap="large")
     with f1:
-        st.markdown("**Larger, comfortable grip**")
-        body("A wide handle that suits reduced grip strength and stiff fingers.")
+        st.markdown("**Soft full-hand grip**")
+        body("A straight foam-wrapped handle held like a mug handle, for reduced grip strength and stiff fingers.")
     with f2:
         st.markdown("**Improved stability**")
-        body("A ring-and-base holder that steadies the cup and reduces spills from tremors.")
+        body("Two pivot rings form a gimbal so the cup hangs level while the hand shakes.")
     with f3:
         st.markdown("**Foldable straw attachment**")
         body("An easier drinking option that avoids lifting or tilting the cup.")

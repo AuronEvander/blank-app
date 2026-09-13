@@ -15,6 +15,7 @@
   --ground:#F5F6FA; --paper:#FFFFFF; --glaze:#DCE0FF; --line:#D6D9EA;
   --cobalt:#1414E6; --cobalt-ink:#0E0EB8; --cobalt-soft:#EEF0FF;
   --steady:#2F9E6E; --steady-soft:#E3F5EC; --tremor:#D9821B; --tremor-soft:#FBEEDC;
+  --navy:#1E4A8A; --navy-2:#173B6F; --grip:#1B1B22;
   --shadow:0 24px 60px -30px rgb(10 10 46 / .35);
   --display:'Instrument Serif',Georgia,'Times New Roman',serif;
   --body:'Albert Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
@@ -28,6 +29,7 @@
     --ground:#0B0C1F; --paper:#14163A; --glaze:#1E2160; --line:#262A5E;
     --cobalt:#6B78FF; --cobalt-ink:#8A95FF; --cobalt-soft:#181B48;
     --steady:#4FCB93; --steady-soft:#123527; --tremor:#F0A24A; --tremor-soft:#3A2510;
+    --navy:#4C7CC9; --navy-2:#3A66AD; --grip:#0A0A10;
     --shadow:0 24px 60px -30px rgb(0 0 0 / .8);
     color-scheme:dark;
   }
@@ -37,6 +39,7 @@
   --ground:#0B0C1F; --paper:#14163A; --glaze:#1E2160; --line:#262A5E;
   --cobalt:#6B78FF; --cobalt-ink:#8A95FF; --cobalt-soft:#181B48;
   --steady:#4FCB93; --steady-soft:#123527; --tremor:#F0A24A; --tremor-soft:#3A2510;
+  --navy:#4C7CC9; --navy-2:#3A66AD; --grip:#0A0A10;
   --shadow:0 24px 60px -30px rgb(0 0 0 / .8);
   color-scheme:dark;
 }
@@ -122,13 +125,16 @@ canvas#lab{width:100%;aspect-ratio:4/3;display:block;background:linear-gradient(
 /* ---------- film ---------- */
 .film{background:var(--paper);border-block:1px solid var(--line)}
 .film .head{display:grid;gap:.8rem;margin-bottom:2rem}
-.films{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:1.2rem}
+.films{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.7fr) minmax(0,.9fr);grid-auto-rows:clamp(220px,24vw,360px);gap:1.2rem}
+.clip{aspect-ratio:auto;height:100%}
+.clip.real{grid-row:span 2}
+.clip.wide{grid-column:span 2}
 .clip{position:relative;border-radius:18px;overflow:hidden;background:var(--ink);aspect-ratio:16/9;max-width:100%}
 .clip.tall{aspect-ratio:3/4}
 .clip video,.clip img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .clip figcaption{position:absolute;left:0;right:0;bottom:0;padding:1rem 1.1rem;color:#fff;font-size:.85rem;background:linear-gradient(transparent,rgb(10 10 46 / .75));display:flex;justify-content:space-between;gap:1rem}
 .clip .mono{opacity:.8}
-@media (max-width:820px){.films{grid-template-columns:1fr}.clip.tall{aspect-ratio:4/3}}
+@media (max-width:820px){.films{grid-template-columns:1fr;grid-auto-rows:auto}.clip{height:auto;aspect-ratio:16/10}.clip.real,.clip.tall{aspect-ratio:9/12;grid-row:auto}.clip.wide{grid-column:auto}}
 
 /* ---------- gallery ---------- */
 .gallery .grid{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:140px;gap:.8rem;margin-top:2rem}
@@ -142,7 +148,7 @@ canvas#lab{width:100%;aspect-ratio:4/3;display:block;background:linear-gradient(
 .mech .wrap{display:grid;gap:3rem}
 .mech-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(2rem,5vw,4rem);align-items:start}
 .exploded{position:relative;border-radius:20px;overflow:hidden;background:var(--paper);border:1px solid var(--line)}
-.exploded img{width:100%;aspect-ratio:1/1;object-fit:cover}
+.exploded img{width:100%;aspect-ratio:4/5;object-fit:cover}
 .pin{position:absolute;width:30px;height:30px;border-radius:50%;background:var(--cobalt);color:#fff;font-family:var(--mono);font-size:.75rem;display:grid;place-items:center;border:3px solid var(--paper);box-shadow:0 4px 14px rgb(20 20 230 / .35);cursor:default}
 .pin::after{content:"";position:absolute;inset:-8px;border-radius:50%;border:1px solid var(--cobalt);opacity:.5;animation:ping 2.2s ease-out infinite}
 @keyframes ping{0%{transform:scale(.6);opacity:.7}100%{transform:scale(1.6);opacity:0}}
@@ -248,9 +254,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 <section class="hero">
   <div class="wrap">
     <div class="hero-copy">
-      <span class="eyebrow" data-i18n="hero.eyebrow">Assistive cup holder · Prototype 01</span>
+      <span class="eyebrow" data-i18n="hero.eyebrow">Assistive cup holder · Prototype 02</span>
       <h1 data-i18n="hero.h1">The hand shakes.<br>The cup <em>stays level.</em></h1>
-      <p class="lede" data-i18n="hero.lede">ParkiCup is a gimbal-stabilised cup holder for people living with Parkinson's. Two pivoting rings decouple the drink from the tremor, a wide handle suits a weaker grip, and a foldable straw makes sipping possible without lifting at all.</p>
+      <p class="lede" data-i18n="hero.lede">ParkiCup is a gimbal-stabilised cup holder for people living with Parkinson's. Two pivoting rings decouple the drink from the tremor, a soft full-hand grip suits weaker fingers, and a foldable straw makes sipping possible without lifting at all.</p>
       <div class="actions">
         <a class="btn" href="#mechanism" data-i18n="hero.cta1">See how it works</a>
         <a class="btn ghost" href="#lab-anchor" data-i18n="hero.cta2">Try the tremor lab</a>
@@ -258,7 +264,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
       <div class="hero-stats">
         <div class="stat"><b class="tab">4–6 Hz</b><span data-i18n="hero.s1">Parkinson's rest tremor</span></div>
         <div class="stat"><b class="tab">2</b><span data-i18n="hero.s2">Free-pivoting axes</span></div>
-        <div class="stat"><b class="tab">4</b><span data-i18n="hero.s3">3D-printed parts</span></div>
+        <div class="stat"><b class="tab">5</b><span data-i18n="hero.s3">3D-printed parts</span></div>
       </div>
     </div>
 
@@ -306,18 +312,26 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 <section class="film" id="film">
   <div class="wrap">
     <div class="head">
-      <span class="eyebrow" data-i18n="film.eyebrow">Film · the mechanism at work</span>
+      <span class="eyebrow" data-i18n="film.eyebrow">Film · the prototype in the hand</span>
       <h2 data-i18n="film.h2">Watch the hand shake and the tea stay still.</h2>
-      <p class="lede" data-i18n="film.lede">Two short films made from the prototype photographs. The hand carries a 4–6 Hz tremor; the rings swing, the cradle hangs level, nothing spills.</p>
+      <p class="lede" data-i18n="film.lede">First, the real thing: the current prototype filmed by the designer, cradle swinging freely on its rings. Then three short AI films made from the prototype as reference: two with a 4–6 Hz tremor in the hand, and one that copies the real clip's movement onto a user.</p>
     </div>
     <div class="films">
+      <figure class="clip real">
+        <video src="media/real_demo.mp4" poster="assets/real_1.jpg" autoplay muted loop playsinline preload="metadata"></video>
+        <figcaption><span data-i18n="film.c0">Prototype 02, real footage</span><span class="mono">00:04</span></figcaption>
+      </figure>
       <figure class="clip">
-        <video src="https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_115711_5ae812c2-2492-4402-9859-c932a6aaf4a2.mp4" poster="https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_115501_b5165d17-471e-42fd-b34e-7de237e60ed0.png" autoplay muted loop playsinline preload="metadata" onerror="this.outerHTML='<img src=\'assets/step5_prototype.jpg\' alt=\'\'>'"></video>
-        <figcaption><span data-i18n="film.c1">Morning tea, tremor present, cup level</span><span class="mono">00:05</span></figcaption>
+        <video src="https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_123933_ffa99411-f1ae-4f9c-b6df-853be52d70a0.mp4" poster="https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_123831_6665a28e-5f46-418c-8ad6-862feb6e2f38.png" autoplay muted loop playsinline preload="metadata" onerror="this.outerHTML='<img src=\'assets/step5_prototype.jpg\' alt=\'\'>'"></video>
+        <figcaption><span data-i18n="film.c1">Morning tea, tremor present, cup level</span><span class="mono">00:08</span></figcaption>
       </figure>
       <figure class="clip tall">
-        <video src="https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_115715_393b14c5-814c-4e42-8cf2-c0e025783f53.mp4" poster="https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_115504_c4cf2103-2aab-4253-8cf0-ae24a6421fec.png" autoplay muted loop playsinline preload="metadata" onerror="this.outerHTML='<img src=\'assets/step4_parts.jpg\' alt=\'\'>'"></video>
-        <figcaption><span data-i18n="film.c2">The two pivot rings, close up</span><span class="mono">00:05</span></figcaption>
+        <video src="https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_123936_8580b3c4-2f66-446a-ad8b-c1a101474379.mp4" poster="https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_123834_55f7f369-352f-475f-b081-e4251d54d1df.png" autoplay muted loop playsinline preload="metadata" onerror="this.outerHTML='<img src=\'assets/step4_parts.jpg\' alt=\'\'>'"></video>
+        <figcaption><span data-i18n="film.c2">The two pivot rings, close up</span><span class="mono">00:08</span></figcaption>
+      </figure>
+      <figure class="clip wide">
+        <video src="https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_124039_6cd32570-8430-4a7a-b809-f31ddc4c64e7.mp4" poster="https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_123831_6665a28e-5f46-418c-8ad6-862feb6e2f38.png" autoplay muted loop playsinline preload="metadata" onerror="this.outerHTML='<img src=\'assets/real_2.jpg\' alt=\'\'>'"></video>
+        <figcaption><span data-i18n="film.c3">The real prototype's movement, transferred to a user (Genjutsu)</span><span class="mono">00:04</span></figcaption>
       </figure>
     </div>
   </div>
@@ -328,21 +342,23 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
   <div class="wrap">
     <div>
       <span class="eyebrow" data-i18n="mech.eyebrow">How it works</span>
-      <h2 style="margin-top:.8rem" data-i18n="mech.h2">Four printed parts. One quiet idea.</h2>
+      <h2 style="margin-top:.8rem" data-i18n="mech.h2">Five parts. One quiet idea.</h2>
     </div>
     <div class="mech-grid">
       <div class="exploded">
-        <img src="assets/step4_parts.jpg" alt="The four 3D-printed ParkiCup parts laid out: a Y-shaped handle, a conical cup cradle and two pivot rings">
-        <span class="pin" style="left:22%;top:38%">1</span>
-        <span class="pin" style="left:75%;top:32%">2</span>
-        <span class="pin" style="left:24%;top:76%">3</span>
-        <span class="pin" style="left:66%;top:76%">4</span>
+        <img src="assets/real_1.jpg" alt="The navy ParkiCup prototype held by its black soft grip: yoke, two nested rings and the windowed cradle">
+        <span class="pin" style="left:72%;top:40%">1</span>
+        <span class="pin" style="left:54%;top:22%">2</span>
+        <span class="pin" style="left:14%;top:31%">3</span>
+        <span class="pin" style="left:40%;top:27%">4</span>
+        <span class="pin" style="left:26%;top:56%">5</span>
       </div>
       <div class="parts">
-        <div class="part"><span class="n">01</span><div><h3 data-i18n="mech.p1h">Wide handle</h3><p data-i18n="mech.p1">A Y-shaped grip the whole hand can close around. No pinch grip, no small loop; the load sits low and close to the wrist.</p></div></div>
-        <div class="part"><span class="n">02</span><div><h3 data-i18n="mech.p2h">Cup cradle</h3><p data-i18n="mech.p2">A conical sleeve that takes an ordinary cup or glass. The drink you already own, made usable again.</p></div></div>
-        <div class="part"><span class="n">03</span><div><h3 data-i18n="mech.p3h">Outer pivot ring</h3><p data-i18n="mech.p3">Mounted to the handle on two opposing pins. It lets the cradle swing front to back while the hand tilts.</p></div></div>
-        <div class="part"><span class="n">04</span><div><h3 data-i18n="mech.p4h">Inner pivot ring</h3><p data-i18n="mech.p4">Pinned to the outer ring at 90°. Together the two rings form a gimbal: the cradle hangs from its pivots and gravity keeps the liquid level, whatever the hand does.</p></div></div>
+        <div class="part"><span class="n">01</span><div><h3 data-i18n="mech.p1h">Grip handle</h3><p data-i18n="mech.p1">A straight bar wrapped in soft black foam, held like a mug handle with the whole hand. No pinch grip, no small loop; the load sits close to the wrist.</p></div></div>
+        <div class="part"><span class="n">02</span><div><h3 data-i18n="mech.p2h">Yoke</h3><p data-i18n="mech.p2">The D-shaped frame that plugs into the handle. Its two tips carry the pivot pins for the outer ring, so the whole gimbal hangs from the hand at one point.</p></div></div>
+        <div class="part"><span class="n">03</span><div><h3 data-i18n="mech.p3h">Outer ring</h3><p data-i18n="mech.p3">Pinned to the yoke. It lets the cradle swing front to back while the hand tilts.</p></div></div>
+        <div class="part"><span class="n">04</span><div><h3 data-i18n="mech.p4h">Inner ring</h3><p data-i18n="mech.p4">Pinned to the outer ring at 90°. Together the rings form a gimbal: two free axes, and gravity keeps the liquid level whatever the hand does.</p></div></div>
+        <div class="part"><span class="n">05</span><div><h3 data-i18n="mech.p5h">Windowed cradle</h3><p data-i18n="mech.p5">A cone with a large window that takes an ordinary handleless cup. The window shows the cup and its base, keeps the weight down, and lets the cradle be lifted out for washing.</p></div></div>
       </div>
     </div>
   </div>
@@ -354,7 +370,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
     <div class="head">
       <div>
         <span class="eyebrow" data-i18n="process.eyebrow">Design process</span>
-        <h2 style="margin-top:.8rem" data-i18n="process.h2">From sketch to a part you can hold.</h2>
+        <h2 style="margin-top:.8rem" data-i18n="process.h2">From sketch to a second prototype.</h2>
       </div>
       <p class="lede" style="max-width:38ch" data-i18n="process.lede">Every part was modelled, printed and assembled by the designer herself. These are the original photographs from the build.</p>
     </div>
@@ -363,7 +379,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
       <article class="step"><figure><img src="assets/step2_concept.jpg" alt="White rendering of the assembled ParkiCup holder" loading="lazy"></figure><div class="k"><span>02</span><span data-i18n="process.k2">Render</span></div><h3 data-i18n="process.h2s">Concept development</h3><p data-i18n="process.p2">Renders check the balance point of the cradle and how far the rings can swing without touching the handle.</p></article>
       <article class="step"><figure><img src="assets/step3_print.jpg" alt="Slicer software showing the four green ParkiCup parts arranged on a print bed" loading="lazy"></figure><div class="k"><span>03</span><span data-i18n="process.k3">Slice</span></div><h3 data-i18n="process.h3s">Print preparation</h3><p data-i18n="process.p3">All four parts fit on one bed. Rings print flat for roundness; the handle prints upright for strength along the grip.</p></article>
       <article class="step"><figure><img src="assets/step4_parts.jpg" alt="The four printed white parts on a wooden table" loading="lazy"></figure><div class="k"><span>04</span><span data-i18n="process.k4">Assemble</span></div><h3 data-i18n="process.h4s">Prototype assembly</h3><p data-i18n="process.p4">Rings snap onto their pins by hand. No screws, no glue, so a worn part can be swapped in seconds.</p></article>
-      <article class="step"><figure><img src="assets/step5_prototype.jpg" alt="A hand holding the assembled ParkiCup prototype, the cradle hanging level inside its two rings" loading="lazy"></figure><div class="k"><span>05</span><span data-i18n="process.k5">Test</span></div><h3 data-i18n="process.h5s">Final prototype</h3><p data-i18n="process.p5">Held, tilted and shaken. The cradle finds level on its own and the wide handle sits comfortably in the palm.</p></article>
+      <article class="step"><figure><img src="assets/step5_prototype.jpg" alt="A hand holding the assembled ParkiCup prototype, the cradle hanging level inside its two rings" loading="lazy"></figure><div class="k"><span>05</span><span data-i18n="process.k5">Test</span></div><h3 data-i18n="process.h5s">Final prototype</h3><p data-i18n="process.p5">Held, tilted and shaken. The cradle finds level on its own; the fork-shaped yoke doubled as a handle in this first build.</p></article>
+      <article class="step"><figure><img src="assets/real_2.jpg" alt="The navy second prototype with a black soft grip handle, held over a wooden table" loading="lazy"></figure><div class="k"><span>06</span><span data-i18n="process.k6">Iterate</span></div><h3 data-i18n="process.h6s">Prototype 02</h3><p data-i18n="process.p6">Navy print, a proper straight handle with a soft foam grip, and a lighter cradle with a window. This is the design shown across the site.</p></article>
     </div>
   </div>
 </section>
@@ -379,11 +396,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
     <dl class="spec-table">
       <div><dt data-i18n="specs.d1">Stabilisation</dt><dd data-i18n="specs.v1">Two-axis passive gimbal, gravity-levelled cradle</dd></div>
       <div><dt data-i18n="specs.d2">Tremor addressed</dt><dd data-i18n="specs.v2">Rest and action tremor in the 4–6 Hz band; wrist tilt front-back and side-side</dd></div>
-      <div><dt data-i18n="specs.d3">Grip</dt><dd data-i18n="specs.v3">Full-hand Y handle, load carried low and near the wrist</dd></div>
+      <div><dt data-i18n="specs.d3">Grip</dt><dd data-i18n="specs.v3">Straight handle with soft foam sleeve, full-hand grip near the wrist</dd></div>
       <div><dt data-i18n="specs.d4">Drinking</dt><dd data-i18n="specs.v4">Sip normally or through the foldable straw without lifting</dd></div>
-      <div><dt data-i18n="specs.d5">Fits</dt><dd data-i18n="specs.v5">Standard ceramic cups and drinking glasses in the cradle</dd></div>
-      <div><dt data-i18n="specs.d6">Parts</dt><dd data-i18n="specs.v6">4, all 3D-printed, tool-free assembly</dd></div>
-      <div><dt data-i18n="specs.d7">Care</dt><dd data-i18n="specs.v7">Rinse; parts separate by hand for cleaning</dd></div>
+      <div><dt data-i18n="specs.d5">Fits</dt><dd data-i18n="specs.v5">Handleless cups and glasses; the cradle window shows the base</dd></div>
+      <div><dt data-i18n="specs.d6">Parts</dt><dd data-i18n="specs.v6">5 printed parts plus foam grip, tool-free assembly</dd></div>
+      <div><dt data-i18n="specs.d7">Care</dt><dd data-i18n="specs.v7">Rinse; the cradle lifts out of the rings for cleaning</dd></div>
     </dl>
   </div>
 </section>
@@ -394,11 +411,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
     <span class="eyebrow" data-i18n="gallery.eyebrow">In use</span>
     <h2 style="margin-top:.8rem" data-i18n="gallery.h2">Back at the table.</h2>
     <div class="grid">
-      <figure class="g1"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_115958_6e486a00-16e9-4705-8c64-83864ef165f6.png" data-fallback="assets/mission_walker.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="An older woman at a sunlit kitchen table holding a mug in the ParkiCup" loading="lazy"></figure>
-      <figure class="g2"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_115618_819c5e64-25e9-4f2c-91e0-a0659f1cb7e7.png" data-fallback="assets/mission_care.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="An older woman drinking through the foldable straw while her daughter sits beside her" loading="lazy"></figure>
-      <figure class="g3"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_115622_8a8e584f-a0c6-40d7-8b1d-c225b74a9336.png" data-fallback="assets/step5_prototype.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="Macro of the two pivot rings and the open cradle holding a mug" loading="lazy"></figure>
-      <figure class="g4"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_115625_1d9157bd-a14c-45aa-8e7e-3a941b2450f9.png" data-fallback="assets/mission_vision.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="An older man laughing with friends at a café, coffee held steady in the ParkiCup" loading="lazy"></figure>
-      <figure class="g5"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_115954_4e0ea426-d5de-449e-a25a-9d6325f8632e.png" data-fallback="assets/step2_concept.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="The ParkiCup on a linen tablecloth with a mug and straw" loading="lazy"></figure>
+      <figure class="g1"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_123831_6665a28e-5f46-418c-8ad6-862feb6e2f38.png" data-fallback="assets/real_2.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="An older woman at a sunlit kitchen table holding a mug in the ParkiCup" loading="lazy"></figure>
+      <figure class="g2"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_123842_a59c5e30-ba9d-40ac-a3c6-0b49818a7bc6.png" data-fallback="assets/mission_care.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="An older woman drinking through the foldable straw while her daughter sits beside her" loading="lazy"></figure>
+      <figure class="g3"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_123900_fa5bf23c-9171-4031-a4e2-a543c4bf75c3.png" data-fallback="assets/real_3.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="Macro of the two pivot rings and the open cradle holding a mug" loading="lazy"></figure>
+      <figure class="g4"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_123857_4433922b-e8f0-48a6-93c2-2304e1d3ee98.png" data-fallback="assets/mission_vision.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="An older man laughing with friends at a café, coffee held steady in the ParkiCup" loading="lazy"></figure>
+      <figure class="g5"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_123838_006f0cfb-895f-43de-886c-076b6c91c416.png" data-fallback="assets/step2_concept.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="The ParkiCup on a linen tablecloth with a mug and straw" loading="lazy"></figure>
     </div>
   </div>
 </section>
@@ -423,10 +440,10 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
     <h2 style="margin-top:.8rem" data-i18n="products.h2">ParkiCup is the first. More are on the bench.</h2>
     <div class="grid">
       <article class="card lead">
-        <div class="img"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_115954_4e0ea426-d5de-449e-a25a-9d6325f8632e.png" data-fallback="assets/step5_prototype.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="The ParkiCup with a mug and straw on a linen tablecloth" loading="lazy"></div>
-        <span class="eyebrow" data-i18n="products.c1k">Prototype 01</span>
+        <div class="img"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_123838_006f0cfb-895f-43de-886c-076b6c91c416.png" data-fallback="assets/step5_prototype.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="The ParkiCup with a mug and straw on a linen tablecloth" loading="lazy"></div>
+        <span class="eyebrow" data-i18n="products.c1k">Prototype 02</span>
         <h3>ParkiCup</h3>
-        <p data-i18n="products.c1">Gimbal-stabilised cup holder with a wide handle and foldable straw.</p>
+        <p data-i18n="products.c1">Gimbal-stabilised cup holder with a soft grip handle and foldable straw.</p>
       </article>
       <article class="card soon">
         <span class="tag" data-i18n="products.soon">In development</span>
@@ -452,7 +469,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
       <article class="post"><span class="k" data-i18n="journal.k1">Series · Understand</span><div class="over"><h3 data-i18n="journal.t1">Why 4–6 Hz matters</h3></div></article>
       <article class="post light"><span class="k" data-i18n="journal.k2">Series · Adapt</span><div class="over"><h3 data-i18n="journal.t2">Fill the cup half way, sit with elbows down</h3></div></article>
       <article class="post alt"><img src="assets/step3_print.jpg" alt="" loading="lazy"><span class="k over" data-i18n="journal.k3">Series · Making</span><div class="over"><h3 data-i18n="journal.t3">Printing the rings flat</h3></div></article>
-      <article class="post alt"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_115625_1d9157bd-a14c-45aa-8e7e-3a941b2450f9.png" data-fallback="assets/problem_cup.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="" loading="lazy"><span class="k over" data-i18n="journal.k4">Series · Understand</span><div class="over"><h3 data-i18n="journal.t4">Grip strength and the small handle</h3></div></article>
+      <article class="post alt"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_123857_4433922b-e8f0-48a6-93c2-2304e1d3ee98.png" data-fallback="assets/problem_cup.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="" loading="lazy"><span class="k over" data-i18n="journal.k4">Series · Understand</span><div class="over"><h3 data-i18n="journal.t4">Grip strength and the small handle</h3></div></article>
     </div>
   </div>
 </section>
@@ -483,9 +500,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 const T = {
   tr: {
     'nav.problem':'Sorun','nav.film':'Film','nav.mech':'Nasıl çalışır','nav.process':'Süreç','nav.designer':'Tasarımcı','nav.journal':'Günlük',
-    'hero.eyebrow':'Yardımcı bardak tutucu · Prototip 01',
+    'hero.eyebrow':'Yardımcı bardak tutucu · Prototip 02',
     'hero.h1':'El titrer.<br>Bardak <em>dengede kalır.</em>',
-    'hero.lede':'ParkiCup, Parkinson ile yaşayan insanlar için gimbal dengeli bir bardak tutucudur. Birbirine dik iki dönen halka içeceği titremeden ayırır, geniş sap zayıf kavramaya uyar, katlanır pipet ise bardağı hiç kaldırmadan içmeyi mümkün kılar.',
+    'hero.lede':'ParkiCup, Parkinson ile yaşayan insanlar için gimbal dengeli bir bardak tutucudur. Birbirine dik iki dönen halka içeceği titremeden ayırır, yumuşak tam-el kavraması zayıf parmaklara uyar, katlanır pipet ise bardağı hiç kaldırmadan içmeyi mümkün kılar.',
     'hero.cta1':'Nasıl çalıştığını gör','hero.cta2':'Titreme laboratuvarını dene',
     'hero.s1':"Parkinson istirahat titremesi",'hero.s2':'Serbest dönen eksen','hero.s3':'3B basılı parça',
     'lab.title':'Titreme laboratuvarı · canlı simülasyon','lab.off':'Sıradan bardak','lab.on':'ParkiCup ile',
@@ -494,35 +511,37 @@ const T = {
     'problem.p1':"Parkinson; titreme, kas sertliği, yavaş hareket ve azalmış kavrama gücü getirir. Standart bir bardak bunların hiçbirine cevap vermez: sapı küçüktür, kütle yukarıdadır ve bileğin her sarsıntısı doğrudan sıvıya geçer.",
     'problem.p2':'Sonuç dökülmedir. Daha sessiz bir bedel de var: insanlar başkalarının yanında içmeyi bırakır, yardım bekler ya da daha az su içer. ParkiCup, uyum sağlayanın kişi değil içecek olması için tasarlandı.',
     'problem.w1':'turuncu: el · yeşil: ParkiCup ile bardak',
-    'film.eyebrow':'Film · mekanizma iş başında','film.h2':'El titrerken çayın kıpırdamadığını izleyin.',
-    'film.lede':'Prototip fotoğraflarından üretilmiş iki kısa film. Elde 4–6 Hz titreme var; halkalar salınıyor, yuva düz asılı kalıyor, hiçbir şey dökülmüyor.',
-    'film.c1':'Sabah çayı, titreme var, bardak düz','film.c2':'İki dönme halkası, yakın plan',
+    'film.eyebrow':'Film · prototip elde','film.h2':'El titrerken çayın kıpırdamadığını izleyin.',
+    'film.lede':'Önce gerçeği: tasarımcının çektiği güncel prototip, yuva halkalarında serbestçe salınıyor. Sonra prototipi referans alan üç kısa yapay zeka filmi: ikisinde elde 4–6 Hz titreme var, üçüncüsü gerçek klibin hareketini bir kullanıcıya kopyalıyor.','film.c0':'Prototip 02, gerçek çekim',
+    'film.c1':'Sabah çayı, titreme var, bardak düz','film.c2':'İki dönme halkası, yakın plan','film.c3':'Gerçek prototipin hareketi bir kullanıcıya aktarıldı (Genjutsu)',
     'gallery.eyebrow':'Kullanımda','gallery.h2':'Masaya geri dönüş.',
-    'mech.eyebrow':'Nasıl çalışır','mech.h2':'Dört basılı parça. Tek sakin fikir.',
-    'mech.p1h':'Geniş sap','mech.p1':'Tüm elin kavrayabildiği Y biçimli tutamak. Parmak ucu kavraması ya da küçük kulp yok; yük alçakta ve bileğe yakın durur.',
-    'mech.p2h':'Bardak yuvası','mech.p2':'Sıradan bir bardağı ya da kupayı alan konik kılıf. Zaten sahip olduğunuz bardak yeniden kullanılabilir olur.',
-    'mech.p3h':'Dış dönme halkası','mech.p3':'Sapa iki karşılıklı pimle bağlıdır. El eğilirken yuvanın öne-arkaya salınmasına izin verir.',
-    'mech.p4h':'İç dönme halkası','mech.p4':'Dış halkaya 90° açıyla pimlenir. İki halka birlikte bir gimbal oluşturur: yuva pimlerinden sarkar ve el ne yaparsa yapsın yerçekimi sıvıyı düz tutar.',
-    'process.eyebrow':'Tasarım süreci','process.h2':'Eskizden elinizde tutabileceğiniz bir parçaya.',
+    'mech.eyebrow':'Nasıl çalışır','mech.h2':'Beş parça. Tek sakin fikir.',
+    'mech.p1h':'Kavrama sapı','mech.p1':'Yumuşak siyah köpükle kaplı düz bir çubuk; kupa kulpu gibi tüm elle tutulur. Parmak ucu kavraması ya da küçük kulp yok; yük bileğe yakın durur.',
+    'mech.p2h':'Çatal (yoke)','mech.p2':'Sapa geçen D biçimli çerçeve. İki ucu dış halkanın dönme pimlerini taşır; böylece tüm gimbal elden tek noktadan asılır.',
+    'mech.p3h':'Dış halka','mech.p3':'Çatala pimlidir. El eğilirken yuvanın öne-arkaya salınmasına izin verir.',
+    'mech.p4h':'İç halka','mech.p4':'Dış halkaya 90° açıyla pimlenir. İki halka birlikte bir gimbal oluşturur: iki serbest eksen; el ne yaparsa yapsın yerçekimi sıvıyı düz tutar.',
+    'mech.p5h':'Pencereli yuva','mech.p5':'Sıradan kulpsuz bir bardağı alan, büyük pencereli koni. Pencere bardağı ve tabanını gösterir, ağırlığı azaltır ve yuvanın yıkamak için çıkarılmasını sağlar.',
+    'process.eyebrow':'Tasarım süreci','process.h2':'Eskizden ikinci prototipe.',
     'process.lede':'Her parça tasarımcının kendisi tarafından modellendi, basıldı ve monte edildi. Bunlar yapım sürecinin orijinal fotoğrafları.',
     'process.k1':'CAD','process.h1':'CAD modelleme','process.p1':'Sap, yuva ve halkalar ayrı gövdeler olarak çizildi; böylece her biri tek başına yeniden basılıp ayarlanabiliyor.',
     'process.k2':'Render','process.h2s':'Konsept geliştirme','process.p2':'Renderlar yuvanın denge noktasını ve halkaların sapa değmeden ne kadar salınabildiğini kontrol eder.',
     'process.k3':'Dilimleme','process.h3s':'Baskı hazırlığı','process.p3':'Dört parça tek tablaya sığar. Halkalar yuvarlaklık için yatık, sap tutamak boyunca dayanım için dik basılır.',
     'process.k4':'Montaj','process.h4s':'Prototip montajı','process.p4':'Halkalar pimlerine elle oturur. Vida ya da yapıştırıcı yok; aşınan parça saniyeler içinde değişir.',
-    'process.k5':'Test','process.h5s':'Son prototip','process.p5':'Tutuldu, eğildi, sallandı. Yuva kendi başına dengeyi buluyor, geniş sap avuca rahatça oturuyor.',
+    'process.k5':'Test','process.h5s':'Son prototip','process.p5':'Tutuldu, eğildi, sallandı. Yuva kendi başına dengeyi buluyor; bu ilk yapımda çatal aynı zamanda sap görevi gördü.',
+    'process.k6':'Yinele','process.h6s':'Prototip 02','process.p6':'Lacivert baskı, yumuşak köpük kavramalı gerçek bir düz sap ve pencereli daha hafif yuva. Sitede gösterilen tasarım bu.',
     'specs.eyebrow':'Tasarım gereği dengeli','specs.h2':'Prototip, açık ve net.','specs.lede':'Aşağıdaki değerler çalışan ilk prototipi tanımlar. Kullanıcı testleri sürdükçe güncellenecek.',
     'specs.d1':'Dengeleme','specs.v1':'İki eksenli pasif gimbal, yerçekimiyle düzlenen yuva',
     'specs.d2':'Hedeflenen titreme','specs.v2':'4–6 Hz bandında istirahat ve hareket titremesi; bilek eğimi öne-arkaya ve yanlara',
-    'specs.d3':'Kavrama','specs.v3':'Tüm el ile tutulan Y sap, yük alçakta ve bileğe yakın',
+    'specs.d3':'Kavrama','specs.v3':'Yumuşak köpük kılıflı düz sap, bileğe yakın tam-el kavraması',
     'specs.d4':'İçme','specs.v4':'Normal yudumlama ya da bardağı kaldırmadan katlanır pipetle',
-    'specs.d5':'Uyumluluk','specs.v5':'Yuvaya standart seramik kupalar ve su bardakları',
-    'specs.d6':'Parça','specs.v6':'4 parça, tamamı 3B baskı, aletsiz montaj',
-    'specs.d7':'Bakım','specs.v7':'Durulayın; parçalar temizlik için elle ayrılır',
+    'specs.d5':'Uyumluluk','specs.v5':'Kulpsuz bardaklar; yuva penceresi tabanı gösterir',
+    'specs.d6':'Parça','specs.v6':'5 basılı parça + köpük kavrama, aletsiz montaj',
+    'specs.d7':'Bakım','specs.v7':'Durulayın; yuva temizlik için halkalardan çıkar',
     'designer.eyebrow':'Tasarımcı hakkında','designer.quote':'"Tasarım, Parkinson ile yaşayan insanların günlük hayatını nasıl kolaylaştırabilir?"',
     'designer.p1':'Selin; sağlık, tasarım ve inovasyona güçlü ilgi duyan bir öğrenci. ParkiCup bu tek soruyla başladı ve Selin süreci tek başına yürüttü: araştırma, CAD, baskı, montaj ve test.',
     'designer.p2':'Proje basit bir inanca dayanıyor: düşünülmüş tasarım küçük ama anlamlı anları iyileştirebilir; sağlık, mühendislik ve empati aynı odada olmalı.',
     'products.eyebrow':'Ürünler','products.h2':'ParkiCup ilki. Yenileri tezgâhta.',
-    'products.c1k':'Prototip 01','products.c1':'Geniş saplı ve katlanır pipetli, gimbal dengeli bardak tutucu.',
+    'products.c1k':'Prototip 02','products.c1':'Yumuşak kavrama saplı ve katlanır pipetli, gimbal dengeli bardak tutucu.',
     'products.soon':'Geliştiriliyor','products.c2h':'Sıradaki ürün','products.c2':'Titreme ve azalmış kavrama için yeni günlük yardımcılar aynı ilkeyle tasarlanıyor: uyum sağlayan kişi değil, nesne olsun.',
     'products.soon2':'Sizin fikriniz','products.c3h':'Neyin zor olduğunu anlatın','products.c3':'Titreme yüzünden zorlaşan bir günlük iş varsa bize yazın. Gerçek sorunlar bir sonraki tasarımın briefini belirler.',
     'journal.eyebrow':'Günlük · Instagram','journal.h2':'Titremeyle iyi yaşamak üzerine kısa, işe yarar paylaşımlar.',
@@ -610,58 +629,90 @@ document.getElementById('year').textContent = new Date().getFullYear();
   function draw(h){
     const W = cv.width, H = cv.height;
     ctx.clearRect(0,0,W,H);
-    const ink = css('--ink'), ink3 = css('--ink-3'), cobalt = css('--cobalt'), line = css('--line');
-    const steady = css('--steady'), tremor = css('--tremor'), paper = css('--paper');
-    const cx = W*0.5, cy = H*0.52;
+    const ink = css('--ink'), ink3 = css('--ink-3'), line = css('--line'), paper = css('--paper');
+    const steady = css('--steady'), tremor = css('--tremor'), navy = css('--navy'), navy2 = css('--navy-2'), grip = css('--grip');
+    const cx = W*0.44, cy = H*0.5;
 
-    // grid + horizon reference
     ctx.strokeStyle = line; ctx.lineWidth = 1; ctx.setLineDash([4,8]);
-    ctx.beginPath(); ctx.moveTo(W*0.08, cy); ctx.lineTo(W*0.92, cy); ctx.stroke(); ctx.setLineDash([]);
-    ctx.fillStyle = ink3; ctx.font = '12px "IBM Plex Mono", monospace'; ctx.fillText('level', W*0.08, cy-8);
+    ctx.beginPath(); ctx.moveTo(W*0.06, cy); ctx.lineTo(W*0.94, cy); ctx.stroke(); ctx.setLineDash([]);
+    ctx.fillStyle = ink3; ctx.font = '12px "IBM Plex Mono", monospace'; ctx.fillText('level', W*0.06, cy-8);
 
-    // hand + handle (rotates with tremor)
-    ctx.save(); ctx.translate(cx, cy+140); ctx.rotate(h);
-    ctx.strokeStyle = tremor; ctx.lineWidth = 14; ctx.lineCap = 'round';
-    ctx.beginPath(); ctx.moveTo(0, 120); ctx.lineTo(0, 0); ctx.stroke();           // forearm/handle stem
-    ctx.strokeStyle = ink; ctx.lineWidth = 10;
-    ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(-95, -150); ctx.moveTo(0, 0); ctx.lineTo(95, -150); ctx.stroke(); // Y handle
+    const cupBody = (a) => {
+      // handleless cup, rotated by a about the cradle rim centre
+      ctx.save(); ctx.translate(cx, cy); ctx.rotate(a);
+      ctx.fillStyle = paper; ctx.strokeStyle = ink; ctx.lineWidth = 4;
+      ctx.beginPath(); ctx.moveTo(-58, -78); ctx.lineTo(58, -78); ctx.lineTo(50, 118); ctx.lineTo(-50, 118); ctx.closePath(); ctx.fill(); ctx.stroke();
+      ctx.save(); ctx.beginPath(); ctx.moveTo(-57, -77); ctx.lineTo(57, -77); ctx.lineTo(49, 117); ctx.lineTo(-49, 117); ctx.closePath(); ctx.clip();
+      ctx.translate(0, 10); ctx.rotate(liq);
+      ctx.fillStyle = tremor; ctx.globalAlpha = .85; ctx.fillRect(-160, -14, 320, 240);
+      ctx.restore(); ctx.restore();
+    };
+
     if (stabilised){
-      // outer ring (moves with hand)
-      ctx.strokeStyle = cobalt; ctx.lineWidth = 8;
-      ctx.beginPath(); ctx.ellipse(0, -150, 100, 34, 0, 0, Math.PI*2); ctx.stroke();
+      // hand, grip handle, yoke and outer ring rotate together about the grip
+      const gx = cx + 185, gy = cy - 10;
+      const rx0 = cx, ry0 = cy - 30;                    // ring centre before tremor
+      const rcx = gx + (rx0-gx)*Math.cos(h) - (ry0-gy)*Math.sin(h);
+      const rcy = gy + (rx0-gx)*Math.sin(h) + (ry0-gy)*Math.cos(h);
+
+      // --- back layer: yoke + outer ring (back half)
+      ctx.save(); ctx.translate(gx, gy); ctx.rotate(h); ctx.translate(-gx, -gy);
+      ctx.strokeStyle = tremor; ctx.lineWidth = 16; ctx.lineCap = 'round';
+      ctx.beginPath(); ctx.moveTo(gx+8, gy+190); ctx.lineTo(gx+8, gy+70); ctx.stroke();      // forearm
+      ctx.strokeStyle = navy; ctx.lineWidth = 12; ctx.lineCap = 'round';
+      ctx.beginPath(); ctx.moveTo(gx-16, ry0); ctx.lineTo(rx0+120, ry0); ctx.stroke();           // yoke bar
+      ctx.lineWidth = 9;
+      ctx.beginPath(); ctx.ellipse(rx0, ry0, 120, 42, 0, -Math.PI/2, Math.PI/2); ctx.stroke();  // yoke D-frame
+      ctx.strokeStyle = navy2; ctx.lineWidth = 9;
+      ctx.beginPath(); ctx.ellipse(rx0, ry0, 100, 34, 0, Math.PI, Math.PI*2); ctx.stroke();     // outer ring, back half
+      ctx.restore();
+
+      // --- cradle group (inner ring, cup, windowed cradle) hangs from the ring centre
+      ctx.save(); ctx.translate(rcx, rcy); ctx.rotate(cupA);
+      ctx.strokeStyle = navy; ctx.lineWidth = 8;
+      ctx.beginPath(); ctx.ellipse(0, 0, 82, 27, 0, Math.PI, Math.PI*2); ctx.stroke();          // inner ring, back half
+      // cup (handleless)
+      ctx.fillStyle = paper; ctx.strokeStyle = ink; ctx.lineWidth = 4;
+      ctx.beginPath(); ctx.moveTo(-58, -62); ctx.lineTo(58, -62); ctx.lineTo(48, 128); ctx.lineTo(-48, 128); ctx.closePath(); ctx.fill(); ctx.stroke();
+      ctx.save(); ctx.beginPath(); ctx.moveTo(-57, -61); ctx.lineTo(57, -61); ctx.lineTo(47, 127); ctx.lineTo(-47, 127); ctx.closePath(); ctx.clip();
+      ctx.translate(0, 28); ctx.rotate(liq); ctx.fillStyle = steady; ctx.globalAlpha = .85; ctx.fillRect(-160, -14, 320, 240);
+      ctx.restore();
+      // cradle cone with a window (evenodd) drawn over the cup
+      ctx.fillStyle = navy;
+      ctx.beginPath();
+      ctx.moveTo(-76, 0); ctx.lineTo(76, 0); ctx.lineTo(50, 112); ctx.lineTo(-50, 112); ctx.closePath();
+      ctx.moveTo(-44, 26); ctx.lineTo(44, 26); ctx.lineTo(30, 96); ctx.lineTo(-30, 96); ctx.closePath();
+      ctx.fill('evenodd');
+      ctx.strokeStyle = navy; ctx.lineWidth = 8;
+      ctx.beginPath(); ctx.ellipse(0, 0, 82, 27, 0, 0, Math.PI); ctx.stroke();                 // inner ring, front half
+      ctx.fillStyle = paper; ctx.strokeStyle = ink; ctx.lineWidth = 3;                          // inner pins
+      [-82, 82].forEach(x => { ctx.beginPath(); ctx.arc(x, 0, 5, 0, Math.PI*2); ctx.fill(); ctx.stroke(); });
+      ctx.restore();
+
+      // --- front layer: outer ring front half, yoke pins, grip handle
+      ctx.save(); ctx.translate(gx, gy); ctx.rotate(h); ctx.translate(-gx, -gy);
+      ctx.strokeStyle = navy2; ctx.lineWidth = 9;
+      ctx.beginPath(); ctx.ellipse(rx0, ry0, 100, 34, 0, 0, Math.PI); ctx.stroke();
       ctx.fillStyle = paper; ctx.strokeStyle = ink; ctx.lineWidth = 3;
-      [-100,100].forEach(x => { ctx.beginPath(); ctx.arc(x, -150, 6, 0, Math.PI*2); ctx.fill(); ctx.stroke(); });
-    }
-    ctx.restore();
+      [-118, 118].forEach(x => { ctx.beginPath(); ctx.arc(rx0+x, ry0, 6, 0, Math.PI*2); ctx.fill(); ctx.stroke(); });
+      ctx.fillStyle = grip; ctx.beginPath(); ctx.roundRect(gx-15, gy-100, 30, 200, 14); ctx.fill();
+      ctx.restore();
 
-    // cradle + cup (level when stabilised)
-    const pivotX = cx + Math.sin(h)*(-140+150) * 0, pivotY = cy - 10;
-    ctx.save(); ctx.translate(cx + Math.sin(h)*(-10), pivotY - Math.cos(h)*0); ctx.rotate(cupA);
-    if (stabilised){
-      ctx.strokeStyle = cobalt; ctx.lineWidth = 8;
-      ctx.beginPath(); ctx.ellipse(0, 0, 80, 28, 0, 0, Math.PI*2); ctx.stroke();  // inner ring
-    }
-    // cup body
-    ctx.fillStyle = paper; ctx.strokeStyle = ink; ctx.lineWidth = 4;
-    ctx.beginPath(); ctx.moveTo(-64, -70); ctx.lineTo(64, -70); ctx.lineTo(48, 90); ctx.lineTo(-48, 90); ctx.closePath(); ctx.fill(); ctx.stroke();
-    // liquid
-    ctx.save(); ctx.beginPath(); ctx.moveTo(-63, -69); ctx.lineTo(63, -69); ctx.lineTo(47, 89); ctx.lineTo(-47, 89); ctx.closePath(); ctx.clip();
-    ctx.translate(0, 20); ctx.rotate(liq);
-    ctx.fillStyle = stabilised ? steady : tremor; ctx.globalAlpha = .85;
-    ctx.fillRect(-140, -12, 280, 200);
-    ctx.restore();
-    ctx.restore();
-
-    // straw hint when stabilised
-    if (stabilised){
-      ctx.strokeStyle = ink3; ctx.lineWidth = 3; ctx.setLineDash([]);
-      ctx.beginPath(); ctx.moveTo(cx+40, cy-80); ctx.lineTo(cx+58, cy-150); ctx.stroke();
+      // straw
+      ctx.strokeStyle = ink3; ctx.lineWidth = 3;
+      ctx.beginPath(); ctx.moveTo(rcx+30, rcy-60); ctx.lineTo(rcx+52, rcy-130); ctx.stroke();
+    } else {
+      // ordinary cup held directly: forearm + cup rotate together
+      ctx.save(); ctx.translate(cx, cy+60); ctx.rotate(h); ctx.translate(-cx, -(cy+60));
+      ctx.strokeStyle = tremor; ctx.lineWidth = 16; ctx.lineCap = 'round';
+      ctx.beginPath(); ctx.moveTo(cx+90, cy+200); ctx.lineTo(cx+70, cy+40); ctx.stroke();
+      ctx.restore();
+      cupBody(h);
     }
 
-    // status label
     ctx.fillStyle = stabilised ? steady : tremor; ctx.font = '600 13px "Albert Sans", sans-serif';
-    ctx.fillText(stabilised ? (document.documentElement.lang === 'tr' ? 'Gimbal aktif: bardak yerçekimiyle dengeleniyor' : 'Gimbal active: cradle self-levels under gravity')
-                            : (document.documentElement.lang === 'tr' ? 'Sıradan bardak: her sarsıntı sıvıya geçiyor' : 'Ordinary cup: every shake reaches the liquid'), W*0.08, H-24);
+    ctx.fillText(stabilised ? (document.documentElement.lang === 'tr' ? 'Gimbal aktif: yuva yerçekimiyle dengeleniyor' : 'Gimbal active: cradle self-levels under gravity')
+                            : (document.documentElement.lang === 'tr' ? 'Sıradan bardak: her sarsıntı sıvıya geçiyor' : 'Ordinary cup: every shake reaches the liquid'), W*0.06, H-24);
   }
 
   function frame(now){
