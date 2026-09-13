@@ -113,6 +113,36 @@
       "remote": "hf_20260913_125011_17c601d6-5fab-4b39-9573-d66855eeb3e7.png",
       "ratio": "4:5",
       "use": "Process step 5 / Instagram w2-wed, w4-fri"
+    },
+    {
+      "file": "ai_before_no_holder.mp4",
+      "job": "28dfb85a-1b27-4f66-b032-dc8cabb45531",
+      "remote": "hf_20260913_125422_28dfb85a-1b27-4f66-b032-dc8cabb45531.mp4",
+      "ratio": "16:9",
+      "use": "Before: bare hand, tremor, tea spills (Kling 3.0)"
+    },
+    {
+      "file": "ai_after_locked.mp4",
+      "job": "cc4753d9-b95c-4280-9501-1370018edb7e",
+      "remote": "hf_20260913_125610_cc4753d9-b95c-4280-9501-1370018edb7e.mp4",
+      "ratio": "16:9",
+      "use": "After: same framing with ParkiCup, cup level (Kling 3.0)"
+    },
+    {
+      "file": "before_after_16x9.mp4",
+      "job": null,
+      "remote": null,
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/253c2f23-5754-468b-817e-6d726e434c2e.mp4",
+      "ratio": "16:9",
+      "use": "Featured comparison, side by side with labels (ffmpeg composite)"
+    },
+    {
+      "file": "before_after_9x16.mp4",
+      "job": null,
+      "remote": null,
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/fb3ebb9a-6791-467c-8085-dd0145a79f1d.mp4",
+      "ratio": "9:16",
+      "use": "Instagram Reel comparison, stacked with labels (ffmpeg composite)"
     }
   ]
 }

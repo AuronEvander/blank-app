@@ -125,6 +125,10 @@ canvas#lab{width:100%;aspect-ratio:4/3;display:block;background:linear-gradient(
 /* ---------- film ---------- */
 .film{background:var(--paper);border-block:1px solid var(--line)}
 .film .head{display:grid;gap:.8rem;margin-bottom:2rem}
+.compare{position:relative;border-radius:20px;overflow:hidden;background:var(--ink);aspect-ratio:16/9;max-width:100%;margin-bottom:1.2rem;box-shadow:var(--shadow)}
+.compare video,.compare img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.compare .tag-row{position:absolute;left:1rem;top:1rem;display:flex;gap:.5rem}
+.compare .tag-row span{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;padding:.3rem .6rem;border-radius:999px;background:rgb(10 10 46 / .7);color:#fff}
 .films{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.7fr) minmax(0,.8fr) minmax(0,.8fr);grid-auto-rows:clamp(280px,30vw,480px);gap:1.2rem}
 .clip{aspect-ratio:auto;height:100%}
 .clip{position:relative;border-radius:18px;overflow:hidden;background:var(--ink);aspect-ratio:16/9;max-width:100%}
@@ -312,9 +316,13 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
   <div class="wrap">
     <div class="head">
       <span class="eyebrow" data-i18n="film.eyebrow">Film · the prototype in the hand</span>
-      <h2 data-i18n="film.h2">Watch the hand shake and the tea stay still.</h2>
+      <h2 data-i18n="film.h2">Same hand, same tremor, same tea. Only the holder changes.</h2>
       <p class="lede" data-i18n="film.lede">First, the real thing: the current prototype filmed by the designer, cradle swinging freely on its rings. Then three short AI films made from the prototype as reference: two with a 4–6 Hz tremor in the hand, and one that copies the real clip's movement onto a user.</p>
     </div>
+    <figure class="compare">
+      <video src="https://d2ol7oe51mr4n9.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/253c2f23-5754-468b-817e-6d726e434c2e.mp4" poster="https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/hf_20260913_125339_7326707a-0de8-4c78-83a1-d4c51ff5291f.png" autoplay muted loop playsinline preload="metadata" onerror="this.outerHTML='<img src=\'assets/real_2.jpg\' alt=\'\'>'"></video>
+      <div class="tag-row"><span data-i18n="film.cmp1">Before · without ParkiCup</span><span data-i18n="film.cmp2">After · with ParkiCup</span></div>
+    </figure>
     <div class="films">
       <figure class="clip real">
         <video src="media/real_demo.mp4" poster="assets/real_1.jpg" autoplay muted loop playsinline preload="metadata"></video>
@@ -510,7 +518,7 @@ const T = {
     'problem.p1':"Parkinson; titreme, kas sertliği, yavaş hareket ve azalmış kavrama gücü getirir. Standart bir bardak bunların hiçbirine cevap vermez: sapı küçüktür, kütle yukarıdadır ve bileğin her sarsıntısı doğrudan sıvıya geçer.",
     'problem.p2':'Sonuç dökülmedir. Daha sessiz bir bedel de var: insanlar başkalarının yanında içmeyi bırakır, yardım bekler ya da daha az su içer. ParkiCup, uyum sağlayanın kişi değil içecek olması için tasarlandı.',
     'problem.w1':'turuncu: el · yeşil: ParkiCup ile bardak',
-    'film.eyebrow':'Film · prototip elde','film.h2':'El titrerken çayın kıpırdamadığını izleyin.',
+    'film.eyebrow':'Film · prototip elde','film.h2':'Aynı el, aynı titreme, aynı çay. Sadece tutucu değişiyor.','film.cmp1':'Öncesi · ParkiCup yok','film.cmp2':'Sonrası · ParkiCup ile',
     'film.lede':'Önce gerçeği: tasarımcının çektiği güncel prototip, yuva halkalarında serbestçe salınıyor. Sonra prototipi referans alan üç kısa yapay zeka filmi: ikisinde elde 4–6 Hz titreme var, üçüncüsü gerçek klibin hareketini bir kullanıcıya kopyalıyor.','film.c0':'Prototip 02, gerçek çekim',
     'film.c1':'Sabah çayı, titreme var, bardak düz','film.c2':'İki dönme halkası, yakın plan','film.c3':'Gerçek prototipin hareketi bir kullanıcıya aktarıldı (Genjutsu)',
     'gallery.eyebrow':'Kullanımda','gallery.h2':'Masaya geri dönüş.',
