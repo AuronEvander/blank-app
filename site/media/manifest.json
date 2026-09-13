@@ -1,0 +1,241 @@
+{
+  "base": "https://d8j0ntlcm91z4.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/",
+  "note": "AI media generated with Higgsfield (GPT Image 2.5, Kling 3.0, Genjutsu) using frames of the real prototype-02 video as references. Run scripts/fetch_media.sh to download the remote items into site/media/.",
+  "items": [
+    {
+      "file": "ai_hero_kitchen.png",
+      "job": "6665a28e-5f46-418c-8ad6-862feb6e2f38",
+      "remote": "hf_20260913_123831_6665a28e-5f46-418c-8ad6-862feb6e2f38.png",
+      "ratio": "16:9",
+      "use": "Hero / film poster"
+    },
+    {
+      "file": "ai_hand_macro.png",
+      "job": "55f7f369-352f-475f-b081-e4251d54d1df",
+      "remote": "hf_20260913_123834_55f7f369-352f-475f-b081-e4251d54d1df.png",
+      "ratio": "4:5",
+      "use": "Mechanism close-up"
+    },
+    {
+      "file": "ai_product.png",
+      "job": "006f0cfb-895f-43de-886c-076b6c91c416",
+      "remote": "hf_20260913_123838_006f0cfb-895f-43de-886c-076b6c91c416.png",
+      "ratio": "16:9",
+      "use": "Product card / Instagram w3-fri"
+    },
+    {
+      "file": "ai_straw_9x16.png",
+      "job": "a59c5e30-ba9d-40ac-a3c6-0b49818a7bc6",
+      "remote": "hf_20260913_123842_a59c5e30-ba9d-40ac-a3c6-0b49818a7bc6.png",
+      "ratio": "9:16",
+      "use": "Instagram w2-fri, w4-wed"
+    },
+    {
+      "file": "ai_mechanism_1x1.png",
+      "job": "fa5bf23c-9171-4031-a4e2-a543c4bf75c3",
+      "remote": "hf_20260913_123900_fa5bf23c-9171-4031-a4e2-a543c4bf75c3.png",
+      "ratio": "1:1",
+      "use": "How it works / Instagram"
+    },
+    {
+      "file": "ai_film_kitchen.mp4",
+      "job": "ffa99411-f1ae-4f9c-b6df-853be52d70a0",
+      "remote": "hf_20260913_123933_ffa99411-f1ae-4f9c-b6df-853be52d70a0.mp4",
+      "ratio": "16:9",
+      "use": "Film: drinking with tremor, cup stays level (Kling 3.0)"
+    },
+    {
+      "file": "ai_film_mechanism.mp4",
+      "job": "8580b3c4-2f66-446a-ad8b-c1a101474379",
+      "remote": "hf_20260913_123936_8580b3c4-2f66-446a-ad8b-c1a101474379.mp4",
+      "ratio": "9:16",
+      "use": "Film: gimbal close-up (Kling 3.0)"
+    },
+    {
+      "file": "real_demo.mp4",
+      "job": null,
+      "remote": null,
+      "ratio": "9:16",
+      "use": "Real footage of prototype 02, filmed by the designer (committed in repo)"
+    },
+    {
+      "file": "ai_reel_straw.mp4",
+      "job": "6569f595-7a5e-4b10-a543-089f0647cfbd",
+      "remote": "hf_20260913_123959_6569f595-7a5e-4b10-a543-089f0647cfbd.mp4",
+      "ratio": "9:16",
+      "use": "Instagram Reel: drinking through the straw (Kling 3.0)"
+    },
+    {
+      "file": "ai_film_genjutsu.mp4",
+      "job": "6cd32570-8430-4a7a-b809-f31ddc4c64e7",
+      "remote": "hf_20260913_124039_6cd32570-8430-4a7a-b809-f31ddc4c64e7.mp4",
+      "ratio": "9:16",
+      "use": "Film: real clip's motion transferred to the kitchen still (Genjutsu motion control)"
+    },
+    {
+      "file": "ai_cafe.png",
+      "job": "604fd5d3-3d19-4599-a7c9-44ddf57bd27f",
+      "remote": "hf_20260913_124906_604fd5d3-3d19-4599-a7c9-44ddf57bd27f.png",
+      "ratio": "16:9",
+      "use": "Gallery / Instagram w3-wed"
+    },
+    {
+      "file": "ai_process_1_cad.png",
+      "job": "300bdd39-5bc3-4c25-ae9f-e0c567e0b48d",
+      "remote": "hf_20260913_124956_300bdd39-5bc3-4c25-ae9f-e0c567e0b48d.png",
+      "ratio": "4:5",
+      "use": "Process step 1"
+    },
+    {
+      "file": "ai_process_2_render.png",
+      "job": "aad61f2d-9583-47d4-8c94-1bb338b35e77",
+      "remote": "hf_20260913_125000_aad61f2d-9583-47d4-8c94-1bb338b35e77.png",
+      "ratio": "4:5",
+      "use": "Process step 2"
+    },
+    {
+      "file": "ai_process_3_slice.png",
+      "job": "81f897c5-6492-4bb9-ac38-16e7041bf606",
+      "remote": "hf_20260913_125004_81f897c5-6492-4bb9-ac38-16e7041bf606.png",
+      "ratio": "4:5",
+      "use": "Process step 3 / Instagram w3-mon"
+    },
+    {
+      "file": "ai_process_4_parts.png",
+      "job": "3049892f-bfb6-482f-97bc-daf8ed3e472d",
+      "remote": "hf_20260913_125008_3049892f-bfb6-482f-97bc-daf8ed3e472d.png",
+      "ratio": "4:5",
+      "use": "Process step 4 / Instagram w2-mon"
+    },
+    {
+      "file": "ai_process_5_assembled.png",
+      "job": "17c601d6-5fab-4b39-9573-d66855eeb3e7",
+      "remote": "hf_20260913_125011_17c601d6-5fab-4b39-9573-d66855eeb3e7.png",
+      "ratio": "4:5",
+      "use": "Process step 5 / Instagram w2-wed, w4-fri"
+    },
+    {
+      "file": "ai_before_no_holder.mp4",
+      "job": "28dfb85a-1b27-4f66-b032-dc8cabb45531",
+      "remote": "hf_20260913_125422_28dfb85a-1b27-4f66-b032-dc8cabb45531.mp4",
+      "ratio": "16:9",
+      "use": "Before: bare hand, tremor, tea spills (Kling 3.0)"
+    },
+    {
+      "file": "ai_after_locked.mp4",
+      "job": "cc4753d9-b95c-4280-9501-1370018edb7e",
+      "remote": "hf_20260913_125610_cc4753d9-b95c-4280-9501-1370018edb7e.mp4",
+      "ratio": "16:9",
+      "use": "After: same framing with ParkiCup, cup level (Kling 3.0)"
+    },
+    {
+      "file": "before_after_16x9.mp4",
+      "job": null,
+      "remote": null,
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/253c2f23-5754-468b-817e-6d726e434c2e.mp4",
+      "ratio": "16:9",
+      "use": "Featured comparison, side by side with labels (ffmpeg composite)"
+    },
+    {
+      "file": "before_after_9x16.mp4",
+      "job": null,
+      "remote": null,
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/fb3ebb9a-6791-467c-8085-dd0145a79f1d.mp4",
+      "ratio": "9:16",
+      "use": "Instagram Reel comparison, stacked with labels (ffmpeg composite)"
+    },
+    {
+      "file": "ai_after_genjutsu_same_motion.mp4",
+      "job": "cc7cdc86-3be0-4d54-9a29-3929523a4e1c",
+      "remote": "hf_20260913_125700_cc7cdc86-3be0-4d54-9a29-3929523a4e1c.mp4",
+      "ratio": "16:9",
+      "use": "After: the before-clip's exact hand motion transferred to the ParkiCup still (Genjutsu motion control)"
+    },
+    {
+      "file": "before_after_genjutsu_16x9.mp4",
+      "job": null,
+      "remote": null,
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/1c8813c6-d956-441e-bd9d-4745f327bf4e.mp4",
+      "ratio": "16:9",
+      "use": "Featured comparison on the site: before clip vs. Genjutsu after clip with identical hand motion"
+    },
+    {
+      "file": "before_after_genjutsu_9x16.mp4",
+      "job": null,
+      "remote": null,
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3ElDEj4XhNaeKOHWFg62AHMpcZB/e644a433-ede2-4cbc-bd4a-e644c1cc5a53.mp4",
+      "ratio": "9:16",
+      "use": "Instagram Reel comparison, identical hand motion"
+    },
+    {
+      "file": "ig_understand_hz.png",
+      "job": "069ed15e-0031-42fb-b64a-4a80898ba78c",
+      "remote": "hf_20260913_130725_069ed15e-0031-42fb-b64a-4a80898ba78c.png",
+      "ratio": "1:1",
+      "use": "Journal/Instagram: why 4-6 Hz matters"
+    },
+    {
+      "file": "ig_adapt_half_cup.png",
+      "job": "92806b5e-561e-441f-abd4-84aee95180ae",
+      "remote": "hf_20260913_130729_92806b5e-561e-441f-abd4-84aee95180ae.png",
+      "ratio": "1:1",
+      "use": "Journal/Instagram: half cup, elbows down"
+    },
+    {
+      "file": "ig_making_rings_flat.png",
+      "job": "8bbd149e-5b9e-4def-91aa-8bf5b326b43c",
+      "remote": "hf_20260913_130732_8bbd149e-5b9e-4def-91aa-8bf5b326b43c.png",
+      "ratio": "1:1",
+      "use": "Journal/Instagram: printing the rings flat"
+    },
+    {
+      "file": "ig_understand_grip.png",
+      "job": "8b9bb715-2a27-484d-91a6-79038ecc77b1",
+      "remote": "hf_20260913_130736_8b9bb715-2a27-484d-91a6-79038ecc77b1.png",
+      "ratio": "1:1",
+      "use": "Journal/Instagram: grip strength and the small handle"
+    },
+    {
+      "file": "ai_product_side_white.png",
+      "job": "49f3ad19-b3a8-4dde-890a-3a291a1e68a0",
+      "remote": "hf_20260913_133619_49f3ad19-b3a8-4dde-890a-3a291a1e68a0.png",
+      "ratio": "1:1",
+      "use": "Clean e-commerce side view on white"
+    },
+    {
+      "file": "ai_parts_knolling.png",
+      "job": "1de97344-2f34-45f5-8c04-dc85add2aba2",
+      "remote": "hf_20260913_133622_1de97344-2f34-45f5-8c04-dc85add2aba2.png",
+      "ratio": "16:9",
+      "use": "Five parts laid out in a row (knolling)"
+    },
+    {
+      "file": "ai_breakfast_man.png",
+      "job": "056a576b-d042-4fc0-9136-9ee1e0f102d8",
+      "remote": "hf_20260913_133626_056a576b-d042-4fc0-9136-9ee1e0f102d8.png",
+      "ratio": "4:5",
+      "use": "Lifestyle: elderly man at breakfast"
+    },
+    {
+      "file": "ai_use_elbows.mp4",
+      "job": "c83a2d55-6213-4d4a-82d3-c8b38034c120",
+      "remote": "hf_20260913_133606_c83a2d55-6213-4d4a-82d3-c8b38034c120.mp4",
+      "ratio": "1:1",
+      "use": "Usage film: elbows on table, half cup (Kling 3.0)"
+    },
+    {
+      "file": "ai_use_cafe.mp4",
+      "job": "8ebd5cd8-c96c-4f26-8592-a10c26b4783d",
+      "remote": "hf_20260913_133610_8ebd5cd8-c96c-4f26-8592-a10c26b4783d.mp4",
+      "ratio": "16:9",
+      "use": "Usage film: café with friends (Kling 3.0)"
+    },
+    {
+      "file": "ai_use_grip.mp4",
+      "job": "7a46958b-ea4f-4688-8dcb-d36d90b42a35",
+      "remote": "hf_20260913_133614_7a46958b-ea4f-4688-8dcb-d36d90b42a35.mp4",
+      "ratio": "1:1",
+      "use": "Usage film: grip macro (Kling 3.0)"
+    }
+  ]
+}
